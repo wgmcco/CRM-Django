@@ -40,7 +40,7 @@ DEFAULT_APPS = [
 ]
 
 THIRD_PARTY_APPS =[
-     # add apps which you install using pip
+    'crispy_forms',
  ]
 
 LOCAL_APPS =[
