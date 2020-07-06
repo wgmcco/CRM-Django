@@ -41,6 +41,7 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS =[
     'crispy_forms',
+    'django_cleanup',
  ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -143,3 +144,13 @@ LOGIN_REDIRECT_URL = 'dashboard'
 # This will print email in Console.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_FILE_PATH = '/tmp/email/messages'
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}

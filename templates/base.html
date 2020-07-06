@@ -44,14 +44,14 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <p class="text-center text-white font-weight-bold"></p>
+      <p class="text-center text-white font-weight-bold">Welcome {{user.first_name}} {{user.last_name}}!</p>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{% url 'dashboard' %}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -78,7 +78,7 @@
 
       <!-- Nav Item - Profile -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{% url 'profile' %}">
           <i class="fas fa-fw fa-user"></i>
           <span>Profile</span></a>
       </li>
@@ -109,7 +109,7 @@
       <!-- Main Content -->
       <div id="content">
 
-
+      <!--{% include 'common/messages.html' %}
 
         {% block content %}  {% endblock content %}
 
@@ -139,7 +139,7 @@
       if ($('#msg').length > 0) {
         $('#msg').remove();
       }
-    }, 2000)
+    }, 4000)
   </script>
 
   <!-- Date Time Picker JS -->

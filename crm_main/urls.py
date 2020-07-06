@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-from apps.common.views import HomeView, SignUpView, DashboardView
+from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdateView, ProfileView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +35,9 @@ urlpatterns = [
          name='logout'),
 
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
+
+    path('profile-update/', ProfileUpdateView.as_view(), name='profile-update'),
+    path('profile/', ProfileView.as_view(), name='profile'),
 
     path(
         'change-password/',
