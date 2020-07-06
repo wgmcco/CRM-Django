@@ -137,3 +137,9 @@ try:
     from crm_main.local_settings import *
 except ImportError:
     pass
+
+LOGIN_REDIRECT_URL = 'dashboard'
+
+# This will print email in Console.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_FILE_PATH = '/tmp/email/messages'
