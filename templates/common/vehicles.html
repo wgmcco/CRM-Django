@@ -13,24 +13,27 @@
         </div>
 
         <!-- Main Content Here -->
+        {% for equip in vehicle %}
         <div class="row">
           <div class="col-lg-2"></div>
           <div class="col-lg-3 my-5">
-            <img src="{{user.profile.profile_image.url}}" class="rounded float-right" height="370px" width="640px">
+            <img src="{{equip.profile_image.url}}" class="rounded float-right" height="370px" width="640px">
           </div>
           <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
             <div class="card-body">
-                <h2>{{user.first_name}} {{user.last_name}}</h2>
-                <p><strong>User: </strong>  </p>
-                <p><strong>Email: </strong> </p>
-                <p><strong>Bio: </strong>  </p>
-                <p><strong>Phone Number: </strong>  </p>
-                <p><strong>Social Number: </strong>  </p>
-                <p><strong>DOB: </strong>  </p>
+                <h1>{{equip.equip_driver}}</h1>
+                <p><strong>Equipment Number </strong>{{ equip.equip_number }}  </p>
+                <p><strong>Equipment Name </strong>{{ equip.equip_name }} </p>
+                <p><strong>Purchased Date:  </strong>{{ equip.purchased_date }}  </p>
+                <p><strong>Vin Number: </strong>{{ equip.vin_number }}  </p>
+                <p><strong>Licence Number: </strong>{{ equip.license_number }}  </p>
+                <p><strong>Make: </strong>{{ equip.make }}  </p>
                 <a href="#" class="btn btn-sm btn-primary shadow-sm">Do something</a>
             </div>
           </div>
         </div>
+        {% endfor %}
+
 
 
 
