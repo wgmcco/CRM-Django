@@ -44,7 +44,7 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <p class="text-center text-white font-weight-bold">Welcome {{user.first_name}} {{user.last_name}}!</p>
+      <p class="text-center text-white font-weight-bold">Welcome {{user.first_name}} {{user.last_name}}</p>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -62,7 +62,7 @@
       <!-- Nav Item - Companies -->
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-fw fa-building"></i>
           <span>Companies</span></a>
       </li>
 
@@ -71,6 +71,27 @@
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-table"></i>
           <span>Contact</span></a>
+      </li>
+
+      <!-- Nav Item - Agencies -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+        <i class="fa fa-address-book"></i>
+          <span>Agencies</span></a>
+      </li>
+
+      <!-- Nav Item - Vehicles -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+        <i class="fa fa-truck"></i>
+          <span>Vehicles</span></a>
+      </li>
+
+      <!-- Nav Item - Permits -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+        <i class="fa fa-file-alt"></i>
+          <span>Permits</span></a>
       </li>
 
       <!-- Divider -->
@@ -131,8 +152,9 @@
   <!-- Core plugin JavaScript-->
   <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
-  <!-- Custom scripts for all pages-->
+  <!-- Custom scripts for all pages And Mask for ss# & phone number-->
   <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
   <script>
     setTimeout(function(){

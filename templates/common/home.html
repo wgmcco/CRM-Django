@@ -22,24 +22,24 @@
 
 </head>
 
-<body class="bg-gradient-warning">
+<body class="bg-gradient-dark">
 
   <div class="container">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="col-xl-12 col-lg-12 col-md-12">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card o-hidden border-0 shadow-lg my-lg-5 ">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-6 d-none d-lg-block">
-                <img src="{% static 'img/django-crm-home.png' %}" class="rounded" alt="Cinque Terre">
+            <div class="row bg-gradient-warning">
+              <div class="col-lg-7 d-none d-lg-block">
+                <img src="{% static 'img/ex.png' %}" class="rounded">
               </div>
-              <div class="col-lg-6">
-                <div class="p-5">
+              <div class="col-lg-5">
+                <div class="p-6">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome To Django CRM!</h1>
                   </div>
@@ -48,17 +48,6 @@
                   <a href="{% url 'login' %}" class="btn btn-primary btn-block btn-lg">Login</a>
                   <br>
                   <a href="{% url 'password-reset' %}" class="btn btn-success btn-block btn-lg">Forgot Password</a>
-                  <hr>
-                  <a href="#" class="btn btn-facebook btn-user btn-block">
-                    <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                  </a>
-                  <hr>
-                  <div class="text-center">
-                    <a class="small" href="https://www.youtube.com/playlist?list=PLSPMgrv4IuJ4WLURdlzKNx4sgsyqW8d5q" target="_blank">Learn to create this CRM - Youtube</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="https://studygyaan.com/build-django-crm-project-from-scratch" target="_blank">StudyGyaan & ProfessionalCipher</a>
-                  </div>
                 </div>
               </div>
             </div>

@@ -40,7 +40,9 @@ class ProfileForm(forms.ModelForm):
             'bio',
             'phone_number',
             'birth_date',
+            'social_number',
             'profile_image'
             ]
+        widgets = {'social_number': forms.TextInput(attrs={'data-mask': "000-00-0000"})}
 
 
