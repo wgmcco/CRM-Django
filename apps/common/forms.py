@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 from apps.userprofile.models import Profile
+from apps.vehicle.models import Vehicle
 
 
 class SignUpForm(UserCreationForm):
@@ -44,5 +45,20 @@ class ProfileForm(forms.ModelForm):
             'profile_image'
             ]
         widgets = {'social_number': forms.TextInput(attrs={'data-mask': "000-00-0000"})}
+
+
+class VehicleForm(forms.ModelForm):
+    class Meta:
+        model = Vehicle
+        fields = [
+            'equip_number',
+            'equip_name',
+            'equip_driver',
+            'purchased_date',
+            'vin_number',
+            'license_number',
+            'make',
+            'profile_image'
+            ]
 
 
