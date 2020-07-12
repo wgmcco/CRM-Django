@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.template import context
 
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView
 from .models import Vehicle
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
@@ -18,27 +19,14 @@ class VehicleView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('home')
 
 
-class VehicleUpdateView(LoginRequiredMixin, TemplateView):
-    vehicle_form = VehicleForm
-    template_name = 'common/vehicles-update.html'
+class VehicleDetailView(LoginRequiredMixin, DetailView):
+    template_name = 'common/vehicles-detail.html'
+    model = Vehicle
+    context_object_name = "vehicle"
+    login_url = reverse_lazy('home')
 
-    def post(self, request):
 
-        post_data = request.POST or None
-        file_data = request.FILES or None
-
-        vehicle_form = VehicleForm(post_data)
-
-        if vehicle_form.is_valid():
-            vehicle_form.save()
-            messages.success(request, 'Your vehicle was updated successfully!')
-            return HttpResponseRedirect(reverse_lazy('vehicles'))
-
-        context = self.get_context_data(
-                                        user_form=vehicle_form,
-                                    )
-
-        return self.render_to_response(context)
-
-    def get(self, request, *args, **kwargs):
-        return self.post(request, *args, **kwargs)
+class AddVehicleView(LoginRequiredMixin, CreateView):
+    template_name = 'common/vehicles-add.html'
+    model = Vehicle
+    fields = '__all__'

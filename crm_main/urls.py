@@ -16,15 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from apps.vehicle.views import VehicleView, VehicleUpdateView
+from apps.vehicle.views import VehicleView, VehicleDetailView, AddVehicleView
 from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdateView, ProfileView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', HomeView.as_view(), name='home'),
     path('register/', SignUpView.as_view(), name='register'),
     path('vehicle/', VehicleView.as_view(), name='vehicles'),
-    path('vehicles-update/', VehicleUpdateView.as_view(), name='vehicles-update'),
+    path('vehicle-detail/<int:pk>', VehicleDetailView.as_view(), name='vehicle-detail'),
+    path('add-vehicle/', AddVehicleView.as_view(), name='add-vehicle'),
     path('login/', auth_views.LoginView.as_view(
         template_name='common/login.html'
         ),
