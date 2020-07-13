@@ -26,7 +26,14 @@ class VehicleDetailView(LoginRequiredMixin, DetailView):
     login_url = reverse_lazy('home')
 
 
-class AddVehicleView(LoginRequiredMixin, CreateView):
+class VehicleAddView(LoginRequiredMixin, CreateView):
     template_name = 'common/vehicles-add.html'
     model = Vehicle
     fields = '__all__'
+
+
+class VehicleUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'common/vehicle-update.html'
+    model = Vehicle
+    fields = '__all__'
+

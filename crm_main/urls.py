@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from apps.vehicle.views import VehicleView, VehicleDetailView, AddVehicleView
+from apps.vehicle.views import VehicleView, VehicleDetailView, VehicleAddView, VehicleUpdateView
 from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdateView, ProfileView
 
 urlpatterns = [
@@ -25,7 +25,8 @@ urlpatterns = [
     path('register/', SignUpView.as_view(), name='register'),
     path('vehicle/', VehicleView.as_view(), name='vehicles'),
     path('vehicle-detail/<int:pk>', VehicleDetailView.as_view(), name='vehicle-detail'),
-    path('add-vehicle/', AddVehicleView.as_view(), name='add-vehicle'),
+    path('vehicle-update/<int:pk>', VehicleUpdateView.as_view(), name='vehicle-update'),
+    path('vehicle-add/', VehicleAddView.as_view(), name='vehicle-add'),
     path('login/', auth_views.LoginView.as_view(
         template_name='common/login.html'
         ),

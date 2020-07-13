@@ -41,6 +41,7 @@
                 <p><strong>Licence Number: </strong>{{ vehicle.license_number }}  </p>
                 <p><strong>Make: </strong>{{ vehicle.make }}  </p>
                 <a href="{% url 'vehicles' %}" class="btn btn-sm btn-primary shadow-sm">Back</a>
+                <a href="{% url 'vehicle-update' vehicle.pk %}" class="btn btn-sm btn-danger shadow-sm">Edit</a>
             </div>
           </div>
         </div>
