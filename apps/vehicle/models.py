@@ -1,13 +1,15 @@
 
 from django.db import models
-from django.urls import reverse
-
+from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 class Vehicle(models.Model):
     equip_number = models.CharField(max_length=20, blank=True)
     equip_name = models.CharField(max_length=50, blank=True)
     equip_driver = models.CharField(max_length=50, blank=True)
+    model_year = models.CharField(max_length=4, blank=True)
+    owner = models.CharField(max_length=50, blank=True)
     purchased_date = models.DateField(null=True, blank=True)
     vin_number = models.CharField(max_length=50, blank=True)
     license_number = models.CharField(max_length=15, blank=True)
@@ -18,4 +20,5 @@ class Vehicle(models.Model):
         return '%s %s' % (self.equip_number, self.equip_name)
 
     def get_absolute_url(self):
-        return reverse('vehicle-detail', args=[str(self.id)])
+        return reverse_lazy('vehicle-detail', args=[str(self.id)])
+

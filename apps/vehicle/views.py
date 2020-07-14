@@ -4,12 +4,10 @@ from django.template import context
 from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView
 from .models import Vehicle
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
-from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 
 from django.urls import reverse_lazy
 
-from ..common.forms import VehicleForm
 
 
 class VehicleView(LoginRequiredMixin, ListView):
@@ -26,14 +24,16 @@ class VehicleDetailView(LoginRequiredMixin, DetailView):
     login_url = reverse_lazy('home')
 
 
-class VehicleAddView(LoginRequiredMixin, CreateView):
+class VehicleAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'common/vehicles-add.html'
     model = Vehicle
+    success_message = "Vehicle was added successfully"
     fields = '__all__'
 
 
-class VehicleUpdateView(LoginRequiredMixin, UpdateView):
+class VehicleUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'common/vehicle-update.html'
     model = Vehicle
+    success_message = "Vehicle was updated successfully"
     fields = '__all__'
 
