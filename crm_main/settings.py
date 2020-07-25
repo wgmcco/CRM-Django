@@ -11,18 +11,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from django.contrib.messages import constants as messages
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+try:
+    from crm_main.local_settings import *
+except ImportError:
+    pass
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'mg@8a5!^#-x*+q&k&#)4_*r_lcfpx^^!zag0e*02fk)u^zj!2g'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -51,9 +46,14 @@ LOCAL_APPS =[
      'apps.common',
      'apps.userprofile',
      'apps.vehicle',
+     'apps.permit',
+     'apps.employee',
+     'apps.company',
+     'apps.agency',
+     'apps.contact',
  ]
 
- # Application definition
+# Application definition
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
@@ -139,10 +139,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-try:
-    from crm_main.local_settings import *
-except ImportError:
-    pass
+
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
@@ -150,7 +147,7 @@ LOGIN_REDIRECT_URL = 'dashboard'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_FILE_PATH = '/tmp/email/messages'
 
-from django.contrib.messages import constants as messages
+
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',

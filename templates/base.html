@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Django CRM Project</title>
+  <title>TVWT CRM</title>
 
   <!-- Custom fonts for this template-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css">
@@ -38,13 +38,13 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-address-card"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Contact <sup>Management</sup></div>
+        <div class="sidebar-brand-text mx-3">TVWT <sup>Management</sup></div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <p class="text-center text-white font-weight-bold">Welcome {{user.first_name}} {{user.last_name}}</p>
+      <p class="text-center text-white font-weight-bold">User {{user.first_name}} {{user.last_name}}</p>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -71,6 +71,13 @@
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-table"></i>
           <span>Contact</span></a>
+      </li>
+
+      <!-- Nav Item - Employee -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'employee' %}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Employee</span></a>
       </li>
 
       <!-- Nav Item - Agencies -->
@@ -128,6 +135,13 @@
           <span>Add Vehicle</span></a>
       </li>
 
+      <!-- Nav Item - Add Employee -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'employee-add' %}">
+          <i class="fas fa-fw fa-folder-plus"></i>
+          <span>Add Employee</span></a>
+      </li>
+
     </ul>
     <!-- End of Sidebar -->
 
@@ -181,6 +195,8 @@
         // $( "#id_birth_date" ).timepicker({ dateFormat: 'yy-mm-dd', maxDate: 0, controlType: 'select'}).attr("autocomplete", "off") ;
         $( "#id_birth_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
         $( "#id_purchased_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
+        $( "#id_dob" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
+        $( "#id_hire_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
     });
   </script>
   <!-- Date Time Picker JS -->
@@ -192,6 +208,11 @@
     //(xxx) xxx-xxxx format code
     $(document).ready(function () {
         $('#id_phone_number').usPhoneFormat({
+            format: '(xxx) xxx-xxxx',
+        });
+    });
+    $(document).ready(function () {
+        $('#id_emergency_phone').usPhoneFormat({
             format: '(xxx) xxx-xxxx',
         });
     });

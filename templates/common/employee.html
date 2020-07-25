@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+        <h1 class="h3 mb-0 text-gray-800">Employees</h1>
+        </div>
+
+        <!-- Main Content Here -->
+        {% for emp in employee %}
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-md-3 my-3">
+              <a href="{% url 'employee-detail' emp.pk %}" </a>
+            <img src="{{ emp.profile_image.url}}" class="rounded float-right" height="370px" width="640px">
+          </div>
+          <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
+            <div class="card-body">
+                <h1>{{emp.first_name}} {{ emp.last_name }}</h1>
+                <p><strong> </strong>{{ emp.address1 }} {{ emp.address2 }} </p>
+                <p><strong> </strong>{{ emp.city }} {{ emp.state }} , {{ emp.zip_code }}</p>
+                <p><strong> </strong>{{ emp.phone_number}} </p>
+                <p><strong> </strong>{{ emp.dob }}  </p>
+             <a href="{% url 'employee-detail' emp.pk %}" class=""></a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+
+
+    </div>
+    <!-- /.container-fluid -->
+{% endblock content %}

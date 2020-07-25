@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from apps.vehicle.views import VehicleView, VehicleDetailView, VehicleAddView, VehicleUpdateView
+from apps.employee.views import EmployeeAddView, EmployeeView, EmployeeDetailView, EmployeeUpdateView
 from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdateView, ProfileView
 
 urlpatterns = [
@@ -24,9 +25,13 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('register/', SignUpView.as_view(), name='register'),
     path('vehicle/', VehicleView.as_view(), name='vehicles'),
+    path('employee/', EmployeeView.as_view(), name='employee'),
     path('vehicle-detail/<int:pk>', VehicleDetailView.as_view(), name='vehicle-detail'),
+    path('employee-detail/<int:pk>', EmployeeDetailView.as_view(), name='employee-detail'),
     path('vehicle-update/<int:pk>', VehicleUpdateView.as_view(), name='vehicle-update'),
+    path('employee-update/<int:pk>', EmployeeUpdateView.as_view(), name='employee-update'),
     path('vehicle-add/', VehicleAddView.as_view(), name='vehicle-add'),
+    path('employee-add/', EmployeeAddView.as_view(), name='employee-add'),
     path('login/', auth_views.LoginView.as_view(
         template_name='common/login.html'
         ),

@@ -1,5 +1,6 @@
 import os
 
+SECRET_KEY = 'mg@8a5!^#-x*+q&k&#)4_*r_lcfpx^^!zag0e*02fk)u^zj!2g'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

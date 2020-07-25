@@ -9,7 +9,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 
 
-
 class VehicleView(LoginRequiredMixin, ListView):
     template_name = 'common/vehicles.html'
     model = Vehicle

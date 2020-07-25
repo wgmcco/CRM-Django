@@ -2,12 +2,13 @@
 from django.db import models
 from django.urls import reverse_lazy
 from django.contrib import messages
+from apps.employee.models import Employee
 
 
 class Vehicle(models.Model):
     equip_number = models.CharField(max_length=20, blank=True)
     equip_name = models.CharField(max_length=50, blank=True)
-    equip_driver = models.CharField(max_length=50, blank=True)
+    equip_driver = models.ForeignKey(Employee, on_delete= models.CASCADE)
     model_year = models.CharField(max_length=4, blank=True)
     owner = models.CharField(max_length=50, blank=True)
     purchased_date = models.DateField(null=True, blank=True)
