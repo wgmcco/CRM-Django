@@ -1,24 +1,13 @@
-"""crm_main URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from apps.vehicle.views import VehicleView, VehicleDetailView, VehicleAddView, VehicleUpdateView
 from apps.employee.views import EmployeeAddView, EmployeeView, EmployeeDetailView, EmployeeUpdateView
+from apps.contact.views import ContactAddView, ContactView, ContactDetailView, ContactUpdateView
+from apps.agency.views import AgencyAddView, AgencyView, AgencyDetailView, AgencyUpdateView
 from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdateView, ProfileView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -26,12 +15,21 @@ urlpatterns = [
     path('register/', SignUpView.as_view(), name='register'),
     path('vehicle/', VehicleView.as_view(), name='vehicles'),
     path('employee/', EmployeeView.as_view(), name='employee'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('agency/', AgencyView.as_view(), name='agency'),
     path('vehicle-detail/<int:pk>', VehicleDetailView.as_view(), name='vehicle-detail'),
     path('employee-detail/<int:pk>', EmployeeDetailView.as_view(), name='employee-detail'),
+    path('contact-detail/<int:pk>', ContactDetailView.as_view(), name='contact-detail'),
+    path('agency-detail/<int:pk>', AgencyDetailView.as_view(), name='agency-detail'),
     path('vehicle-update/<int:pk>', VehicleUpdateView.as_view(), name='vehicle-update'),
     path('employee-update/<int:pk>', EmployeeUpdateView.as_view(), name='employee-update'),
+    path('contact-update/<int:pk>', ContactUpdateView.as_view(), name='contact-update'),
+    path('agency-update/<int:pk>', AgencyUpdateView.as_view(), name='agency-update'),
     path('vehicle-add/', VehicleAddView.as_view(), name='vehicle-add'),
     path('employee-add/', EmployeeAddView.as_view(), name='employee-add'),
+    path('contact-add/', ContactAddView.as_view(), name='contact-add'),
+    path('agency-add/', AgencyAddView.as_view(), name='agency-add'),
+
     path('login/', auth_views.LoginView.as_view(
         template_name='common/login.html'
         ),

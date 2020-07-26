@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+        <h1 class="h3 mb-0 text-gray-800">Contact</h1>
+        </div>
+
+        <!-- Main Content Here -->
+
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-3 my-5">
+            <img src="{{contact.profile_image.url}}" class="rounded float-right" height="370px" width="640px">
+          </div>
+          <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
+            <div class="card-body">
+                <h1><strong>{{ contact.first_name }} {{ contact.last_name }}</strong></h1>
+                <p><strong> </strong>{{ contact.address1 }} {{ contact.address2 }} </p>
+                <p><strong> </strong>{{ contact.city }} {{ contact.state }} , {{ contact.zip_code }}</p>
+                <p><strong> </strong>{{ contact.phone_number}} </p>
+                <p><strong> </strong>{{ contact.company }}  </p>
+
+                <a href="{% url 'contact' %}" class="btn btn-sm btn-primary shadow-sm">Back</a>
+                <a href="{% url 'contact-update' contact.pk %}" class="btn btn-sm btn-danger shadow-sm">Edit</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+{% endblock content %}

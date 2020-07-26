@@ -5,6 +5,11 @@
 
 {% block content %}
     <!-- Begin Page Content -->
+<style>
+a:link {
+  text-decoration: none;
+}
+</style>
     <div class="container-fluid">
 
         <!-- Page Heading -->
@@ -27,6 +32,7 @@
                 <p><strong> </strong>{{ emp.city }} {{ emp.state }} , {{ emp.zip_code }}</p>
                 <p><strong> </strong>{{ emp.phone_number}} </p>
                 <p><strong> </strong>{{ emp.dob }}  </p>
+                <p><strong> </strong>{{ emp.get_cdl_class_display }}  </p>
              <a href="{% url 'employee-detail' emp.pk %}" class=""></a>
             </div>
           </div>

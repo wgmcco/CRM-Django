@@ -9,3 +9,9 @@ CLASS = (
     ("B", "Class B"),
     ("C", "Class C"),
 )
+
+TYPE = (
+    ("CI", "City"),
+    ("CO", "County"),
+    ("ST", "State"),
+)

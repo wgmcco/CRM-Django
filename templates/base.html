@@ -69,7 +69,7 @@
 
       <!-- Nav Item - Contact -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{% url 'contact' %}">
           <i class="fas fa-fw fa-table"></i>
           <span>Contact</span></a>
       </li>
@@ -83,7 +83,7 @@
 
       <!-- Nav Item - Agency -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{% url 'agency' %}">
         <i class="fa fa-address-book"></i>
           <span>Agency</span></a>
       </li>
@@ -128,9 +128,16 @@
 
       <!-- Nav Item - Add Agency -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'employee-add' %}">
+        <a class="nav-link" href="{% url 'agency-add' %}">
           <i class="fas fa-fw fa-folder-plus"></i>
           <span>Add Agency</span></a>
+      </li>
+
+        <!-- Nav Item - Add Contact -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contact-add' %}">
+          <i class="fas fa-fw fa-folder-plus"></i>
+          <span>Add Contact</span></a>
       </li>
     </ul>
     <!-- End of Sidebar -->
