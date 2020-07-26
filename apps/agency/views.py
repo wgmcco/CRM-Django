@@ -24,7 +24,7 @@ class AgencyDetailView(LoginRequiredMixin, DetailView):
 
 
 class AgencyAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    template_name = 'common/contact-add.html'
+    template_name = 'common/agency-add.html'
     model = Agency
     success_message = "Agency was added successfully"
     fields = '__all__'
