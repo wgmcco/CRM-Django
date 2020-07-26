@@ -62,7 +62,7 @@
 
       <!-- Nav Item - Companies -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{% url 'company' %}">
           <i class="fas fa-fw fa-building"></i>
           <span>Companies</span></a>
       </li>
@@ -138,6 +138,13 @@
         <a class="nav-link" href="{% url 'contact-add' %}">
           <i class="fas fa-fw fa-folder-plus"></i>
           <span>Add Contact</span></a>
+      </li>
+
+        <!-- Nav Item - Add Company -->
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'company-add' %}">
+          <i class="fas fa-fw fa-folder-plus"></i>
+          <span>Add Company</span></a>
       </li>
     </ul>
     <!-- End of Sidebar -->

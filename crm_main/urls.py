@@ -6,6 +6,7 @@ from apps.vehicle.views import VehicleView, VehicleDetailView, VehicleAddView, V
 from apps.employee.views import EmployeeAddView, EmployeeView, EmployeeDetailView, EmployeeUpdateView
 from apps.contact.views import ContactAddView, ContactView, ContactDetailView, ContactUpdateView
 from apps.agency.views import AgencyAddView, AgencyView, AgencyDetailView, AgencyUpdateView
+from apps.company.views import CompanyAddView, CompanyView, CompanyDetailView, CompanyUpdateView
 from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdateView, ProfileView
 
 
@@ -17,19 +18,22 @@ urlpatterns = [
     path('employee/', EmployeeView.as_view(), name='employee'),
     path('contact/', ContactView.as_view(), name='contact'),
     path('agency/', AgencyView.as_view(), name='agency'),
+    path('company/', CompanyView.as_view(), name='company'),
     path('vehicle-detail/<int:pk>', VehicleDetailView.as_view(), name='vehicle-detail'),
     path('employee-detail/<int:pk>', EmployeeDetailView.as_view(), name='employee-detail'),
     path('contact-detail/<int:pk>', ContactDetailView.as_view(), name='contact-detail'),
     path('agency-detail/<int:pk>', AgencyDetailView.as_view(), name='agency-detail'),
+    path('company-detail/<int:pk>', CompanyDetailView.as_view(), name='company-detail'),
     path('vehicle-update/<int:pk>', VehicleUpdateView.as_view(), name='vehicle-update'),
     path('employee-update/<int:pk>', EmployeeUpdateView.as_view(), name='employee-update'),
     path('contact-update/<int:pk>', ContactUpdateView.as_view(), name='contact-update'),
     path('agency-update/<int:pk>', AgencyUpdateView.as_view(), name='agency-update'),
+    path('company-update/<int:pk>', CompanyUpdateView.as_view(), name='company-update'),
     path('vehicle-add/', VehicleAddView.as_view(), name='vehicle-add'),
     path('employee-add/', EmployeeAddView.as_view(), name='employee-add'),
     path('contact-add/', ContactAddView.as_view(), name='contact-add'),
     path('agency-add/', AgencyAddView.as_view(), name='agency-add'),
-
+    path('company-add/', CompanyAddView.as_view(), name='company-add'),
     path('login/', auth_views.LoginView.as_view(
         template_name='common/login.html'
         ),

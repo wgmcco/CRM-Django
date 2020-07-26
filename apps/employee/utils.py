@@ -15,3 +15,11 @@ TYPE = (
     ("CO", "County"),
     ("ST", "State"),
 )
+
+INCORPORATED = (
+    ("C", "C Corp"),
+    ("S", "S Corp"),
+    ("L", "LLC"),
+    ("P", "Partnership"),
+    ("U", "Unknown"),
+)
