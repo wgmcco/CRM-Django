@@ -6,7 +6,7 @@ from django.contrib import messages
 
 from ..company.models import Company
 
-
+# Hired people only
 class Employee(models.Model):
     company = models.ForeignKey(Company, on_delete= models.CASCADE)
     first_name = models.CharField(max_length=20, blank=True)
@@ -19,6 +19,7 @@ class Employee(models.Model):
     phone_number = models.CharField(max_length=14, blank=True)
     emergency_phone = models.CharField(max_length=14, blank=True)
     emergency_contact = models.CharField(max_length=14, blank=True)
+    social_number = models.CharField(max_length=14, blank=True)
     dob = models.DateField(null=True, blank=True)
     hire_date = models.DateField(null=True, blank=True)
     separation_date = models.DateField(null=True, blank=True)
@@ -28,8 +29,11 @@ class Employee(models.Model):
     med_expires = models.DateField(null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
     profile_image = models.ImageField(default='equipment/default.jpg', upload_to='equipment/', null=True, blank=True)
-    date_created = models.DateTimeField(auto_now=True)
-    date_updated = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+
+    class Meta(object):
+        unique_together = ("first_name", "last_name")
 
     def __str__(self):
         return '%s %s %s' % (self.company, self.first_name, self.last_name)

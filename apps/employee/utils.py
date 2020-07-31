@@ -23,3 +23,11 @@ INCORPORATED = (
     ("P", "Partnership"),
     ("U", "Unknown"),
 )
+
+CATEGORY = (
+            ('P', 'Puller'),
+            ('T', 'Trailer'),
+            ('W', 'Water Truck'),
+            ('Su', 'Super'),
+            ('Sw', 'Sweeper'),
+            )

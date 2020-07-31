@@ -3,7 +3,7 @@ from apps.employee.utils import TYPE
 from django.urls import reverse_lazy
 from django.contrib import messages
 
-
+# Muni names for permits
 class Agency(models.Model):
     agency_name = models.CharField(max_length=50, blank=True)
     agency_type = models.CharField(max_length=2, choices=TYPE, blank=True, null=True)
@@ -15,10 +15,17 @@ class Agency(models.Model):
     state = models.CharField(max_length=2, default='CA', blank=True, null=True)
     zip_code = models.CharField(max_length=10, blank=True)
     phone_number = models.CharField(max_length=14, blank=True)
+    fax = models.CharField(max_length=20)
+    email = models.EmailField(max_length=150, default='unk@unk.com')
+    website = models.CharField(max_length=200, blank=True)
     notes = models.TextField(null=True, blank=True)
     profile_image = models.ImageField(default='agency/default.jpg', upload_to='agency/', null=True, blank=True)
-    date_created = models.DateTimeField(auto_now=True)
-    date_updated = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta(object):
+        verbose_name = "Agency"
+        verbose_name_plural = "Agencies"
 
     def __str__(self):
         return self.agency_name
