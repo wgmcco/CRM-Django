@@ -23,11 +23,11 @@ a:link {
           <div class="col-lg-2"></div>
             <div class="col-md-3 my-3" style="text-decoration: none;">
               <a href="{% url 'contact-detail' contact.pk %}"</a>
-              <img src="{{ contact.profile_image.url}}" class="rounded float-right" height="370px" width="640px">
+              <img src="{{ contact.profile_image.url}}" class="rounded float-right" height="370px" width="600px">
             </div>
           <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
             <div class="card-body" style="text-decoration: none;">
-                <h1>{{contact.first_name}} {{ contact.last_name }} </h1><h3 style="text-align:right">{{ contact.company }}</h3 style="text-align:right">
+                <h1>{{contact.first_name}} {{ contact.last_name }} </h1><h3 style="text-align:right">{{ contact.com }}</h3 style="text-align:right">
                 <p>{{ contact.address1 }} {{ contact.address2 }} {{ contact.city }} {{ contact.state }} , {{ contact.zip_code }}</p>
                 <p><strong>Phone : </strong>{{ contact.phone_number}} </p>
                 <p><strong>Emergency Name :  </strong>{{ contact.emergency_phone}} </p>

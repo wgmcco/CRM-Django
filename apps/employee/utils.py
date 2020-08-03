@@ -25,9 +25,24 @@ INCORPORATED = (
 )
 
 CATEGORY = (
-            ('P', 'Puller'),
-            ('T', 'Trailer'),
-            ('W', 'Water Truck'),
-            ('Su', 'Super'),
-            ('Sw', 'Sweeper'),
-            )
+    ('P', 'Puller'),
+    ('T', 'Trailer'),
+    ('W', 'Water Truck'),
+    ('Su', 'Super'),
+    ('Sw', 'Sweeper'),
+)
+
+INSURANCE_TYPE = (
+     ('GL', 'General Liability'),
+     ('WC', 'Workers Comp'),
+     ('AU', 'Auto'),
+     ('CR', 'Cargo'),
+     ('UM', 'Umbrella'),
+)
+
+DOCUMENT_TYPE = (
+    ('DIR', 'DIR Number'),
+    ('BL', 'Business License'),
+    ('HP', 'Hire Package'),
+    ('MS', 'Miscellaneous'),
+)

@@ -2,8 +2,9 @@
 from django.db import models
 from apps.employee.utils import STATE, INCORPORATED
 from django.urls import reverse_lazy
-from apps.contact.models import Contact
+#from apps.contact.models import Contact
 from django.contrib import messages
+
 
 # Companies both Vendors & Subs
 class Company(models.Model):
@@ -15,13 +16,18 @@ class Company(models.Model):
     zip_code = models.CharField(max_length=10, blank=True)
     phone_number = models.CharField(max_length=14, blank=True)
     fax_phone = models.CharField(max_length=14, blank=True)
-    owner = models.ForeignKey(Contact, on_delete=models.CASCADE())
+    owner = models.CharField(max_length=45, blank=True)
+    contacts = models.ManyToManyField('contact.Contact', blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True)
     type = models.CharField(max_length=1, choices=INCORPORATED, blank=True, null=True)
     notes = models.TextField(null=True, blank=True)
     profile_image = models.ImageField(default='company/default.jpg', upload_to='company/', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    class Meta(object):
+        verbose_name = "Company"
+        verbose_name_plural = "Companies"
 
     def __str__(self):
         return self.name

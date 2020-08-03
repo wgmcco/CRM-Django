@@ -43,14 +43,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 LOCAL_APPS =[
-     'apps.common',
-     'apps.userprofile',
-     'apps.vehicle',
-     'apps.permit',
-     'apps.employee',
-     'apps.company',
-     'apps.agency',
-     'apps.contact',
+    'apps.common',
+    'apps.userprofile',
+    'apps.vehicle',
+    'apps.permit',
+    'apps.employee',
+    'apps.company',
+    'apps.agency',
+    'apps.contact',
+    'apps.insurance',
+    'apps.document',
  ]
 
 # Application definition
