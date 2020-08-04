@@ -111,7 +111,7 @@
 
       <!-- Nav Item - Document -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'vehicles' %}">
+        <a class="nav-link" href="{% url 'document' %}">
         <i class="fa fa-truck"></i>
           <span>Document</span></a>
       </li>
@@ -171,7 +171,7 @@
 
         <!-- Nav Item - Add Document -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{% url 'document-add' %}">
           <i class="fas fa-fw fa-folder-plus"></i>
           <span>Add Document</span></a>
       </li>
@@ -230,6 +230,8 @@
         $( "#id_purchased_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
         $( "#id_dob" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
         $( "#id_hire_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
+        $( "#id_start_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
+        $( "#id_end_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
     });
   </script>
   <!-- Date Time Picker JS -->

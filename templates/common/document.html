@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+<style>
+a:link {
+  text-decoration: none;
+}
+</style>
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+        <h1 class="h3 mb-0 text-gray-800">Document</h1>
+        </div>
+
+        <!-- Main Content Here -->
+        {% for doc in document %}
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-md-3 my-3">
+             <!--
+              -->
+
+
+          </div>
+          <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
+            <div class="card-body">
+                                    <h1>{{ doc.company }}</h1>
+                 <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Type</th>
+                            <th>Start</th>
+                            <th>End</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                     <tbody>
+
+                        <tr>
+                            <td>{{ doc.company }}</td>
+                            <td>{{ doc.type }}</td>
+                            <td>{{ doc.start_date }}</td>
+                            <td>{{ doc.end_date }}</td>
+                            <td>{{ doc.note }}</td>
+                        </tr>
+
+
+                     </tbody>
+                 </table>
+             <a></a>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+
+
+    </div>
+    <!-- /.container-fluid -->
+{% endblock content %}
