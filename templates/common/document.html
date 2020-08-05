@@ -14,22 +14,15 @@ a:link {
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
-        <h1 class="h3 mb-0 text-gray-800">Document</h1>
+        <h1 class="h3 mb-0 text-gray-800">Documents</h1>
         </div>
 
         <!-- Main Content Here -->
-        {% for doc in document %}
-        <div class="row">
-          <div class="col-lg-2"></div>
-          <div class="col-md-3 my-3">
-             <!--
-              -->
 
 
-          </div>
-          <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
-            <div class="card-body">
-                                    <h1>{{ doc.company }}</h1>
+
+            <h1>{{ doc.company }}</h1>
+
                  <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -40,27 +33,23 @@ a:link {
                             <th>Notes</th>
                         </tr>
                     </thead>
+        {% for doc in document %}
+
                      <tbody>
 
                         <tr>
                             <td>{{ doc.company }}</td>
-                            <td>{{ doc.type }}</td>
+                            <td><a href="{% url 'document-detail' doc.pk %}"><strong>{{ doc.get_type_display }}</strong></a></td>
                             <td>{{ doc.start_date }}</td>
                             <td>{{ doc.end_date }}</td>
-                            <td>{{ doc.note }}</td>
+                            <td>{{ doc.note }} </td>
                         </tr>
 
-
+             <a href="{% url 'document-detail' doc.pk %}" class=""></a>
                      </tbody>
+
+       {% endfor %}
                  </table>
-             <a></a>
-
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-
 
 
     </div>

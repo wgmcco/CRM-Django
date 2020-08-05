@@ -35,4 +35,5 @@ class DocumentUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'common/document-update.html'
     model = Document
     success_message = "Document was updated successfully"
+    success_url = '/document'
     fields = '__all__'

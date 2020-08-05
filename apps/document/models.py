@@ -6,8 +6,8 @@ from django.contrib import messages
 
 
 class Document(models.Model):
-    type = models.CharField(max_length=3, choices=DOCUMENT_TYPE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    type = models.CharField(max_length=3, choices=DOCUMENT_TYPE)
     start_date = models.DateField()
     end_date = models.DateField()
     pdf = models.FileField(upload_to='document/', blank=True)
