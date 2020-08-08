@@ -28,27 +28,19 @@ a:link {
                         <tr>
                             <th>Company</th>
                             <th>Type</th>
-                            <th>Start</th>
                             <th>End</th>
                             <th>Notes</th>
                         </tr>
                     </thead>
-        {% for doc in document %}
-
-                     <tbody>
-
-                        <tr>
+                    <tbody>
+              {% for doc in document %}
                             <td>{{ doc.company }}</td>
-                            <td><a href="{% url 'document-detail' doc.pk %}"><strong>{{ doc.get_type_display }}</strong></a></td>
-                            <td>{{ doc.start_date }}</td>
+                            <td><a href="{% url 'document-update' doc.pk %}"><strong>{{ doc.get_type_display }}</strong></a></td>
                             <td>{{ doc.end_date }}</td>
                             <td>{{ doc.note }} </td>
-                        </tr>
-
-             <a href="{% url 'document-detail' doc.pk %}" class=""></a>
                      </tbody>
 
-       {% endfor %}
+              {% endfor %}
                  </table>
 
 

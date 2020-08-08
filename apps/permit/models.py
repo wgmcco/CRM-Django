@@ -10,7 +10,7 @@ from django.contrib import messages
 # Transportation Permits
 
 
-class Permits(models.Model):
+class Permit(models.Model):
 	permit_cn = models.CharField("Permit number", max_length=150, unique=True)
 	agency = models.ForeignKey(Agency, on_delete=models.PROTECT)
 	agency_type = models.CharField(max_length=2, choices=TYPE, blank=True, null=True)

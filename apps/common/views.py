@@ -1,11 +1,14 @@
 from django.shortcuts import render
 
 from django.views.generic import TemplateView, CreateView, ListView
-
 from .forms import SignUpForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.urls import reverse_lazy
+
+from ..company.models import Company
+from ..contact.models import Contact
+from ..vehicle.models import Vehicle
 
 
 class HomeView(TemplateView):
@@ -15,6 +18,18 @@ class HomeView(TemplateView):
 class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'common/dashboard.html'
     login_url = reverse_lazy('home')
+
+    def get(self, request, *args, **kwargs):
+        concnt = Contact.objects.count()
+        comcnt = Company.objects.count()
+        vehcnt = Vehicle.objects.count()
+        context = {
+            'concnt': concnt,
+            'comcnt': comcnt,
+            'vehcnt': vehcnt
+        }
+        return render(request, 'common/dashboard.html', context)
+
 
 
 class SignUpView(CreateView):

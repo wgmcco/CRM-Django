@@ -35,3 +35,9 @@ class CompanyUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Company
     success_message = "Company was updated successfully"
     fields = '__all__'
+
+
+class CompanyTemplateView(LoginRequiredMixin, SuccessMessageMixin, TemplateView):
+    template_name = 'common/dashboard.html'
+    model = Company
+    fields = '__all__'
