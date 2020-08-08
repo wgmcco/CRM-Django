@@ -13,90 +13,150 @@
           <div class="row">
 
             <!-- Company Card Example -->
-            <div class="col-xl-2 col-md-3 mb-4">
+            <div class="col-xl-3 col-md-3 mb-4">
+                <a class="nav-link" href="{% url 'company-add' %}">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Companies</div>
+                      <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Companies</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">{{ comcnt }}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-building fa-2x text-gray-300"></i>
+                      <i class="fas fa-building fa-4x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div></a>
             </div>
 
             <!-- Contact Card Example -->
-            <div class="col-xl-2 col-md-3 mb-4">
+            <div class="col-xl-3 col-md-3 mb-4">
+                <a class="nav-link" href="{% url 'contact-add' %}">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Contacts</div>
+                      <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Contacts</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">{{ concnt }}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-table fa-2x text-gray-300"></i>
+                      <i class="fas fa-address-book fa-4x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div></a>
+            </div>
+
+            <!-- Employee Card Example -->
+            <div class="col-xl-3 col-md-3 mb-4">
+                <a class="nav-link" href="{% url 'employee-add' %}">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Employee</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ empcnt }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-address-card fa-4x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div></a>
             </div>
 
 
+            <!-- Agency Card Example -->
+            <div class="col-xl-3 col-md-3 mb-4">
+                <a class="nav-link" href="{% url 'agency-add' %}">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Agency</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ agecnt }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-university fa-4x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div></a>
+            </div>
+
             <!-- Vehicles Card Example -->
-            <div class="col-xl-2 col-md-3 mb-4">
+            <div class="col-xl-3 col-md-3 mb-4">
+                <a class="nav-link" href="{% url 'vehicle-add' %}">
               <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Vehicles</div>
+                      <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Vehicles</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">{{ vehcnt }}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-truck fa-2x text-gray-300"></i>
+                      <i class="fas fa-truck fa-4x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div></a>
+            </div>
+
+     <!-- Insurance Card Example -->
+            <div class="col-xl-3 col-md-3 mb-4">
+                <a class="nav-link" href="{% url 'insurance-add' %}">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">Insurance</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ inscnt }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-gavel fa-rotate-270 fa-4x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div></a>
             </div>
 
      <!-- Permit Card Example -->
-            <div class="col-xl-2 col-md-3 mb-4">
+            <div class="col-xl-3 col-md-3 mb-4">
+                <a class="nav-link" href="{% url 'permit-add' %}">
               <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Permits</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ vehcnt }}</div>
+                      <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">Permit</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ percnt }}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-truck fa-2x text-gray-300"></i>
+                      <i class="fas fa-tags fa-spin fa-4x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div></a>
             </div>
-     <!-- Insurance Card Example -->
-            <div class="col-xl-2 col-md-3 mb-4">
-              <div class="card border-left-danger shadow h-100 py-2">
+
+            <!-- Document Card Example -->
+            <div class="col-xl-3 col-md-3 mb-4">
+                <a class="nav-link" href="{% url 'document-add' %}">
+              <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Insurance</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ vehcnt }}</div>
+                      <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Document</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ doccnt }}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-truck fa-2x text-gray-300"></i>
+                      <i class="fas fa-file-pdf fa-4x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div></a>
             </div>
-          </div>
+
 
     </div>
     <!-- /.container-fluid -->

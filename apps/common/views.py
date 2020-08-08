@@ -9,7 +9,11 @@ from django.urls import reverse_lazy
 from ..company.models import Company
 from ..contact.models import Contact
 from ..vehicle.models import Vehicle
-
+from ..employee.models import Employee
+from ..agency.models import Agency
+from ..insurance.models import Insurance
+from ..permit.models import Permit
+from ..document.models import Document
 
 class HomeView(TemplateView):
     template_name = 'common/home.html'
@@ -23,10 +27,20 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         concnt = Contact.objects.count()
         comcnt = Company.objects.count()
         vehcnt = Vehicle.objects.count()
+        empcnt = Employee.objects.count()
+        agecnt = Agency.objects.count()
+        inscnt = Insurance.objects.count()
+        percnt = Permit.objects.count()
+        doccnt = Document.objects.count()
         context = {
             'concnt': concnt,
             'comcnt': comcnt,
-            'vehcnt': vehcnt
+            'empcnt': empcnt,
+            'agecnt': agecnt,
+            'inscnt': inscnt,
+            'percnt': percnt,
+            'vehcnt': vehcnt,
+            'doccnt': doccnt,
         }
         return render(request, 'common/dashboard.html', context)
 

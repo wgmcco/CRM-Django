@@ -3,6 +3,7 @@
 
 {% load crispy_forms_tags %}
 
+
 {% block content %}
     <!-- Begin Page Content -->
 <style>
@@ -10,6 +11,8 @@ a:link {
   text-decoration: none;
 }
 </style>
+
+
     <div class="container-fluid">
 
         <!-- Page Heading -->
@@ -18,34 +21,29 @@ a:link {
         </div>
 
         <!-- Main Content Here -->
-        {% for contact in contact %}
+
         <div class="row">
-          <div class="col-lg-2"></div>
-            <div class="col-md-3 my-3" style="text-decoration: none;">
-              <a href="{% url 'contact-detail' contact.pk %}"</a>
-              <img src="{{ contact.profile_image.url}}" class="rounded float-right" height="370px" width="600px">
+         {% for contact in contact %}
+             <a href="{% url 'contact-detail' contact.pk %}" class="">
+            <div class="col-xl-4 col-md-3 mb-4">
+               <div class="card border-left-primary shadow h-100 py-2">
+                 <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div><h3><strong>{{contact.first_name}} {{ contact.last_name }}</strong> </h3>{{ contact.com }}</div>
+                        <p><strong>Phone : </strong>{{ contact.phone_number}} </p>
+                    </div></a>
+                  </div>
+                </div>
+              </div>
             </div>
-          <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
-            <div class="card-body" style="text-decoration: none;">
-                <h1>{{contact.first_name}} {{ contact.last_name }} </h1><h3 style="text-align:right">{{ contact.com }}</h3 style="text-align:right">
-                <p>{{ contact.address1 }} {{ contact.address2 }} {{ contact.city }} {{ contact.state }} , {{ contact.zip_code }}</p>
-                <p><strong>Phone : </strong>{{ contact.phone_number}} </p>
-                <p><strong>Emergency Name :  </strong>{{ contact.emergency_phone}} </p>
-                <p><strong>Emergency Contact : </strong>{{ contact.emergency_contact}} </p>
-                <details>
-                    <summary>Social Number</summary>
-                    <p><strong>SS# : </strong>{{ contact.social_number}} </p>
-                </details>
-             <a href="{% url 'contact-detail' contact.pk %}" class=""></a>
-            </div>
-          </div>
+         {% endfor %}
         </div>
-        {% endfor %}
-
-
 
 
 
     </div>
+
+
     <!-- /.container-fluid -->
 {% endblock content %}

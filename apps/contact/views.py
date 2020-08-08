@@ -12,6 +12,7 @@ from django.urls import reverse_lazy
 class ContactView(LoginRequiredMixin, ListView):
     template_name = 'common/contact.html'
     model = Contact
+    queryset = Contact.objects.order_by('com')
     context_object_name = "contact"
     login_url = reverse_lazy('home')
 

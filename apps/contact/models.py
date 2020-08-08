@@ -29,8 +29,6 @@ class Contact(models.Model):
 
     class Meta(object):
         unique_together = ("first_name", "last_name")
-        verbose_name = "Contact"
-        verbose_name_plural = "Contacts"
 
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
