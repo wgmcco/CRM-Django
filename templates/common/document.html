@@ -18,9 +18,6 @@ a:link {
         </div>
 
         <!-- Main Content Here -->
-
-
-
             <h1>{{ doc.company }}</h1>
 
                  <table class="table table-bordered">
@@ -30,6 +27,7 @@ a:link {
                             <th>Type</th>
                             <th>End</th>
                             <th>Notes</th>
+                            <th>Thumbnail</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +36,9 @@ a:link {
                             <td><a href="{% url 'document-update' doc.pk %}"><strong>{{ doc.get_type_display }}</strong></a></td>
                             <td>{{ doc.end_date }}</td>
                             <td>{{ doc.note }} </td>
-                     </tbody>
+                            <td> <a href="{{ doc.pdf.url }}">
+                                <img src="{{ doc.pdf.url }}" alt="PDF" style="width:42px;height:42px;"></td>
+                  </tbody>
 
               {% endfor %}
                  </table>

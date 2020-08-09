@@ -10,7 +10,7 @@ class Document(models.Model):
     type = models.CharField(max_length=3, choices=DOCUMENT_TYPE)
     start_date = models.DateField()
     end_date = models.DateField()
-    pdf = models.FileField(upload_to='document/', blank=True)
+    pdf = models.FileField(upload_to='document/', blank=True, null=True)
     note = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
