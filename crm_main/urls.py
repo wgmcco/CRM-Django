@@ -5,7 +5,7 @@ from django.contrib.auth import views as auth_views
 from apps.vehicle.views import VehicleView, VehicleDetailView, VehicleAddView, VehicleUpdateView
 from apps.employee.views import EmployeeAddView, EmployeeView, EmployeeDetailView, EmployeeUpdateView
 from apps.contact.views import ContactAddView, ContactView, ContactDetailView, ContactUpdateView
-from apps.agency.views import AgencyAddView, AgencyView, AgencyDetailView, AgencyUpdateView
+from apps.agency.views import AgencyAddView, AgencyView, AgencyDetailView, AgencyUpdateView, SearchView
 from apps.company.views import CompanyAddView, CompanyView, CompanyDetailView, CompanyUpdateView
 from apps.document.views import DocumentView, DocumentAddView, DocumentDetailView, DocumentUpdateView
 from apps.permit.views import PermitView, PermitAddView, PermitDetailView, PermitUpdateView
@@ -21,6 +21,7 @@ urlpatterns = [
     path('employee/', EmployeeView.as_view(), name='employee'),
     path('contact/', ContactView.as_view(), name='contact'),
     path('agency/', AgencyView.as_view(), name='agency'),
+    path('view/', SearchView.as_view(), name='search'),
     path('company/', CompanyView.as_view(), name='company'),
     path('document/', DocumentView.as_view(), name='document'),
     path('permit/', PermitView.as_view(), name='permit'),

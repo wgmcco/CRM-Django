@@ -46,3 +46,8 @@ DOCUMENT_TYPE = (
     ('HP', 'Hire Package'),
     ('MS', 'Miscellaneous'),
 )
+
+COMPANY_TYPE = (
+    ('V', 'Vendor'),
+    ('C', 'Customer'),
+)

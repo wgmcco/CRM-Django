@@ -1,9 +1,20 @@
 from django.db import models
-
 from django.urls import reverse_lazy
 from django.contrib import messages
-
 from apps.company.models import Company
+from django.db.models import Q
+
+
+class PostManager(models.Manager):
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query is not None:
+            or_lookup = (Q(city__icontains=query) |
+                         Q(first_name__icontains=query) |
+                         Q(last_name__icontains=query)
+                        )
+            qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
+        return qs
 
 
 # People that are not employees just foreman , sub drivers, people
@@ -26,6 +37,8 @@ class Contact(models.Model):
     profile_image = models.ImageField(default='contact/default.jpg', upload_to='contact/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now=True)
     date_updated = models.DateTimeField(auto_now_add=True)
+
+    objects = PostManager()
 
     class Meta(object):
         unique_together = ("first_name", "last_name")

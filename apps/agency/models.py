@@ -2,6 +2,20 @@ from django.db import models
 from apps.employee.utils import TYPE
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.db.models import Q
+
+
+class PostManager(models.Manager):
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query is not None:
+            or_lookup = (Q(agency_name__icontains=query) |
+                         Q(first_name__icontains=query) |
+                         Q(last_name__icontains=query)
+                        )
+            qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
+        return qs
+
 
 # Muni names for permits
 class Agency(models.Model):
@@ -22,6 +36,8 @@ class Agency(models.Model):
     profile_image = models.ImageField(default='agency/default.jpg', upload_to='agency/', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    objects = PostManager()
 
     class Meta(object):
         verbose_name = "Agency"

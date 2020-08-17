@@ -19,6 +19,7 @@ class CompanyAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 class CompanyView(LoginRequiredMixin, ListView):
     template_name = 'common/company.html'
     model = Company
+    queryset = Company.objects.order_by('name')
     context_object_name = "company"
     login_url = reverse_lazy('home')
 

@@ -25,7 +25,8 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
     def get(self, request, *args, **kwargs):
         concnt = Contact.objects.count()
-        comcnt = Company.objects.count()
+        comcnt = Company.objects.all().filter(company_type='C').count()
+        subcnt = Company.objects.all().filter(company_type='V').count()
         vehcnt = Vehicle.objects.count()
         empcnt = Employee.objects.count()
         agecnt = Agency.objects.count()
@@ -35,6 +36,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         context = {
             'concnt': concnt,
             'comcnt': comcnt,
+            'subcnt': subcnt,
             'empcnt': empcnt,
             'agecnt': agecnt,
             'inscnt': inscnt,
