@@ -6,6 +6,7 @@ from django.contrib import messages
 
 from ..company.models import Company
 
+
 # Hired people only
 class Employee(models.Model):
     company = models.ForeignKey(Company, on_delete= models.CASCADE)

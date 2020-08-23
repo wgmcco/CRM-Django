@@ -14,6 +14,7 @@ from ..agency.models import Agency
 from ..insurance.models import Insurance
 from ..permit.models import Permit
 from ..document.models import Document
+from ..image.models import Image
 
 class HomeView(TemplateView):
     template_name = 'common/home.html'
@@ -33,6 +34,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         inscnt = Insurance.objects.count()
         percnt = Permit.objects.count()
         doccnt = Document.objects.count()
+        imgcnt = Image.objects.count()
         context = {
             'concnt': concnt,
             'comcnt': comcnt,
@@ -43,6 +45,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
             'percnt': percnt,
             'vehcnt': vehcnt,
             'doccnt': doccnt,
+            'imgcnt': imgcnt
         }
         return render(request, 'common/dashboard.html', context)
 

@@ -53,6 +53,7 @@ LOCAL_APPS =[
     'apps.contact',
     'apps.insurance',
     'apps.document',
+    'apps.image',
  ]
 
 # Application definition

@@ -24,7 +24,6 @@ class DocumentView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('home')
 
 
-
 class DocumentDetailView(LoginRequiredMixin, DetailView):
     template_name = 'common/document-detail.html'
     model = Document

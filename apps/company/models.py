@@ -30,7 +30,7 @@ class Company(models.Model):
     phone_number = models.CharField(max_length=14, blank=True)
     fax_phone = models.CharField(max_length=14, blank=True)
     owner = models.CharField(max_length=45, blank=True)
-    contacts = models.ManyToManyField('contact.Contact', blank=True, null=True)
+    contacts = models.ManyToManyField('contact.Contact', blank=True)
     email = models.EmailField(max_length=100, blank=True)
     type = models.CharField(max_length=1, choices=INCORPORATED, blank=True, null=True)
     notes = models.TextField(null=True, blank=True)

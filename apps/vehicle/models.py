@@ -27,7 +27,7 @@ class Vehicle(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return '%s %s' % (self.equip_number, self.equip_name)
+        return self.equip_number
 
     def get_absolute_url(self):
         return reverse_lazy('vehicle-detail', args=[str(self.id)])

@@ -14,6 +14,7 @@ from django.urls import reverse_lazy
 class AgencyView(LoginRequiredMixin, ListView):
     template_name = 'common/agency.html'
     model = Agency
+    queryset = Agency.objects.order_by('agency_name')
     context_object_name = "agency"
     login_url = reverse_lazy('home')
 

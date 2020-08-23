@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+<style>
+a:link {
+  text-decoration: none;
+}
+</style>
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+        <h1 class="h3 mb-0 text-gray-800">Images</h1>
+        </div>
+
+        <!-- Main Content Here -->
+            <h1>{{ img.equip_number }}</h1>
+
+                 <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Equipment Number</th>
+                            <th>Notes</th>
+                            <th>Thumbnail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+              {% for img in image %}
+                            <td><a href="{% url 'image-update' img.pk %}"><strong>{{ img.equip_number }}</strong></a></td>
+                            <td>{{ img.notes }} </td>
+                            <td> <a href="{{ img.image_image.url }}">
+                                <img src="{{ img.image_image.url }}" alt="PDF" style="width:55px;height:50px;"></td>
+                  </tbody>
+
+              {% endfor %}
+                 </table>
+
+
+    </div>
+    <!-- /.container-fluid -->
+{% endblock content %}
