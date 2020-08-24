@@ -5,6 +5,7 @@ from django.views.generic import ListView, TemplateView, DetailView, CreateView,
 from .models import Agency
 from apps.contact.models import Contact
 from apps.company.models import Company
+from apps.image.models import Image
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -59,12 +60,14 @@ class SearchView(ListView):
             blog_results = Agency.objects.search(query)
             contact_results = Contact.objects.search(query)
             company_results = Company.objects.search(query)
+            image_results = Image.objects.search(query)
 
             # combine querysets
             queryset_chain = chain(
                 blog_results,
                 contact_results,
-                company_results
+                company_results,
+                image_results
             )
             qs = sorted(queryset_chain,
                         key=lambda instance: instance.pk,

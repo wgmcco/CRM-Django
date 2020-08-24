@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 class ImageView(LoginRequiredMixin, ListView):
     template_name = 'common/image.html'
     model = Image
-    queryset = Image.objects.order_by('equip_number')
+    queryset = Image.objects.all()
     context_object_name = "image"
     login_url = reverse_lazy('home')
 

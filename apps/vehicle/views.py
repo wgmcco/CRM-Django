@@ -3,6 +3,7 @@ from django.template import context
 
 from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView
 from .models import Vehicle
+from ..image.models import Image
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -21,6 +22,13 @@ class VehicleDetailView(LoginRequiredMixin, DetailView):
     model = Vehicle
     context_object_name = "vehicle"
     login_url = reverse_lazy('home')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['photo'] = Image.objects.filter()
+        #filter(equip_number='101').count()
+        print (context)
+        return context
 
 
 class VehicleAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

@@ -5,6 +5,8 @@ from django.contrib import messages
 from apps.employee.utils import CATEGORY
 from apps.employee.models import Employee
 from apps.company.models import Company
+from apps.image.models import Image
+
 
 # Equipment with tires
 class Vehicle(models.Model):
@@ -21,6 +23,7 @@ class Vehicle(models.Model):
     model = models.CharField(max_length=150)
     width = models.CharField(max_length=150)
     length = models.CharField(max_length=150)
+    image_image = models.ManyToManyField(Image, blank=True)
     profile_image = models.ImageField(default='equipment/default.jpg', upload_to='equipment/', null=True, blank=True)
     note = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)

@@ -11,7 +11,8 @@ class PostManager(models.Manager):
         if query is not None:
             or_lookup = (Q(city__icontains=query) |
                          Q(first_name__icontains=query) |
-                         Q(last_name__icontains=query)
+                         Q(last_name__icontains=query) |
+                         Q(com__name__icontains=query)
                         )
             qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
         return qs

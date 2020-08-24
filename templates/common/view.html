@@ -24,6 +24,12 @@
                    Result : <a href='{{ object.get_absolute_url }}'>{{ object.first_name }} / {{ object.com }}</a>
                 </div>
             </div>
+      {% elif klass == 'Image' %}
+           <div class='row'>
+                <div class='col-12'>
+                   Result : <a href='{{ object.get_absolute_url }}'>{{ object.name }} / {{ object.notes }}</a>
+                </div>
+            </div>
       {% elif klass == 'Company' %}
            <div class='row'>
                 <div class='col-12'>

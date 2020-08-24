@@ -18,6 +18,7 @@ class PostManager(models.Manager):
             qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
         return qs
 
+
 # Companies both Vendors & Subs
 class Company(models.Model):
     name = models.CharField(max_length=100, blank=True)

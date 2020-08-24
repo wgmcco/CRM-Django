@@ -16,6 +16,7 @@ from ..permit.models import Permit
 from ..document.models import Document
 from ..image.models import Image
 
+
 class HomeView(TemplateView):
     template_name = 'common/home.html'
 
