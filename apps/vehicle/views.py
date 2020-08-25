@@ -17,18 +17,28 @@ class VehicleView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('home')
 
 
-class VehicleDetailView(LoginRequiredMixin, DetailView):
-    template_name = 'common/vehicles-detail.html'
-    model = Vehicle
-    context_object_name = "vehicle"
-    login_url = reverse_lazy('home')
+# class VehicleDetailView(LoginRequiredMixin, DetailView):
+#     template_name = 'common/vehicles-detail.html'
+#     model = Vehicle
+#     context_object_name = "vehicle"
+#     login_url = reverse_lazy('home')
+#
+#     def get_context_data(self, *args, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['pk'] = (['pk'])
+#         context['photo'] = Image.objects.filter()
+#         #filter(equip_number='101').count()
+#         print (context)
+#          return context
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['photo'] = Image.objects.filter()
-        #filter(equip_number='101').count()
-        print (context)
-        return context
+def vehicle_detail_view(request, pk):
+    vehicle = get_object_or_404(Vehicle, pk=pk)
+    template = 'common/vehicles-detail.html'
+    print(vehicle.image_image.all())
+    context = {
+        'vehicle': vehicle,
+    }
+    return render(request, template, context)
 
 
 class VehicleAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

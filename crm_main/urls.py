@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from apps.vehicle.views import VehicleView, VehicleDetailView, VehicleAddView, VehicleUpdateView
+from apps.vehicle.views import VehicleView, VehicleAddView, VehicleUpdateView, vehicle_detail_view
 from apps.employee.views import EmployeeAddView, EmployeeView, EmployeeDetailView, EmployeeUpdateView
 from apps.contact.views import ContactAddView, ContactView, ContactDetailView, ContactUpdateView
 from apps.agency.views import AgencyAddView, AgencyView, AgencyDetailView, AgencyUpdateView, SearchView
@@ -28,7 +28,8 @@ urlpatterns = [
     path('image/', ImageView.as_view(), name='image'),
     path('permit/', PermitView.as_view(), name='permit'),
     path('insurance/', InsuranceView.as_view(), name='insurance'),
-    path('vehicle-detail/<int:pk>', VehicleDetailView.as_view(), name='vehicle-detail'),
+    # path('vehicle-detail/<int:pk>', VehicleDetailView.as_view(), name='vehicle-detail'),
+    path('vehicle-detail/<int:pk>', vehicle_detail_view,name='vehicle-detail'),
     path('employee-detail/<int:pk>', EmployeeDetailView.as_view(), name='employee-detail'),
     path('contact-detail/<int:pk>', ContactDetailView.as_view(), name='contact-detail'),
     path('agency-detail/<int:pk>', AgencyDetailView.as_view(), name='agency-detail'),
