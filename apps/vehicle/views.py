@@ -34,7 +34,6 @@ class VehicleView(LoginRequiredMixin, ListView):
 def vehicle_detail_view(request, pk):
     vehicle = get_object_or_404(Vehicle, pk=pk)
     template = 'common/vehicles-detail.html'
-    print(vehicle.image_image.all())
     context = {
         'vehicle': vehicle,
     }

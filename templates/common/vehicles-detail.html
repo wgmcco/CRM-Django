@@ -32,15 +32,18 @@
                 <p><strong>Vin Number: </strong>{{ vehicle.vin_number }}  </p>
                 <p><strong>Licence Number: </strong>{{ vehicle.license_number }}  </p>
                 <p><strong>Make: </strong>{{ vehicle.make }}  </p>
-                <p><strong>KEY: </strong>{{ vehicle.pk }}  </p>
+
                 {% for image in vehicle.image_image.all %}
-                     <p>photo : <img src="{{ image.image_image.url }}" alt="PDF" style="width:55px;height:50px;"></p>
+                     <a href="{% url 'image-detail' image.pk %}"</a>
+                     <img src="{{ image.image_image.url }}" alt="PDF" style="width:100px;height:100px;">
                 {% endfor %}
+{#                          <a href="{% url 'image-detail' image.pk %}" </a>#}
                          <p><img src="{{ vehicle.profile_image.url }}" alt="PDF" style="width:55px;height:50px;"></p>
 
 
+
                 <a href="{% url 'vehicles' %}" class="btn btn-sm btn-primary shadow-sm">Back</a>
-{#                <a href="{% url 'vehicle-update' vehicle.pk %}" class="btn btn-sm btn-danger shadow-sm">Edit</a>#}
+                <a href="{% url 'vehicle-update' vehicle.pk %}" class="btn btn-sm btn-danger shadow-sm">Edit</a>
             </div>
           </div>
         </div>
