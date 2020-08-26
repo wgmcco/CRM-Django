@@ -23,6 +23,8 @@ class Vehicle(models.Model):
     model = models.CharField(max_length=150)
     width = models.CharField(max_length=150)
     length = models.CharField(max_length=150)
+    # can remove image_image for here soon
+
     image_image = models.ManyToManyField(Image, blank=True)
     profile_image = models.ImageField(default='equipment/default.jpg', upload_to='equipment/', null=True, blank=True)
     note = models.TextField(blank=True)

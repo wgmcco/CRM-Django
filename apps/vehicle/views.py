@@ -31,12 +31,17 @@ class VehicleView(LoginRequiredMixin, ListView):
 #         print (context)
 #          return context
 
+#  Need to add user login required for the def below
+
 def vehicle_detail_view(request, pk):
     vehicle = get_object_or_404(Vehicle, pk=pk)
     template = 'common/vehicles-detail.html'
+    image = Image.objects.filter(equip_number_id=pk)
     context = {
         'vehicle': vehicle,
+        'image': image
     }
+    print(image)
     return render(request, template, context)
 
 

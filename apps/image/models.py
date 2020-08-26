@@ -18,8 +18,8 @@ class PostManager(models.Manager):
 # Image Storage System
 class Image(models.Model):
     name = models.CharField(max_length=100, blank=True)
-    equip_number = models.ForeignKey('vehicle.Vehicle', on_delete= models.PROTECT)
-    image_image = models.ImageField(default="image/default.jpg", upload_to="image/", null=True, blank=True)
+    equip_number = models.ForeignKey('vehicle.Vehicle', on_delete=models.PROTECT)
+    image_image = models.FileField(default="image/default.jpg", upload_to="image/", null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -29,6 +29,7 @@ class Image(models.Model):
     class Meta(object):
         verbose_name = "Image"
         verbose_name_plural = "Images"
+        ordering = ['equip_number']
 
     def __str__(self):
         return '%s - %s' % (self.equip_number, self.name)

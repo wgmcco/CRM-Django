@@ -33,11 +33,7 @@
                 <p><strong>Licence Number: </strong>{{ vehicle.license_number }}  </p>
                 <p><strong>Make: </strong>{{ vehicle.make }}  </p>
 
-                {% for image in vehicle.image_image.all %}
-                     <a href="{% url 'image-detail' image.pk %}"</a>
-                     <img src="{{ image.image_image.url }}" alt="PDF" style="width:100px;height:100px;">
-                {% endfor %}
-                         <p></p>
+
 
 
                 <a href="{% url 'vehicles' %}" class="btn btn-sm btn-primary shadow-sm">Back</a>
@@ -45,9 +41,14 @@
             </div>
           </div>
         </div>
-
-
-
+            <div class="row2">
+                {% for image in image %}
+                     <a href="{{ image.image_image.url }}"</a>
+                     <img src="{{ image.image_image.url }}" alt="PDF" style="width:150px;height:105px;">
+                {% endfor %}
+                         <p></p>
+            <br>
+            </div>
 
     </div>
     <!-- /.container-fluid -->
