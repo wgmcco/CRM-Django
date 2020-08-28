@@ -41,10 +41,10 @@
             </div>
           </div>
         </div>
-            <div class="row2">
+            <div class="row1" >
                 {% for image in image %}
                      <a href="{{ image.image_image.url }}"</a>
-                     <img src="{{ image.image_image.url }}" alt="PDF" style="width:150px;height:105px;">
+                     <img src="{{ image.image_image.url }}"  onerror="this.onerror=null;this.src='/media/image/pdf.png'" style="width:100px;height:100px;">
                 {% endfor %}
                          <p></p>
             <br>
