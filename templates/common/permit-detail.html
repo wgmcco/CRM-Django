@@ -17,14 +17,15 @@
         <div class="row">
           <div class="col-lg-2"></div>
           <div class="col-lg-3 my-5">
-            <img src="" class="rounded float-right" height="370px" width="600px">
+              <a href="{{ permit.pdf.url }}">
+            <img src="{{ permit.pdf.url }}" class="rounded float-lg-left" height="370px" width="300px" onerror="this.onerror=null;this.src='/media/image/pdf.png'" >
           </div>
           <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5">
             <div class="card-body">
                 <h1><strong>{{ permit.permit_cn }} {{ permit.agency }}</strong></h1>
-                <p><strong> </strong>{{ permit.address1 }} {{ permit.address2 }} </p>
-                <p><strong> </strong>{{ permit.city }} {{ permit.state }} , {{ permit.zip_code }}</p>
-                <p><strong> </strong>{{ permit.phone_number}} </p>
+                <p><strong> </strong>{{ permit.agency.address1 }} {{ permit.agency.address2 }} </p>
+                <p><strong> </strong>{{ permit.agency.city }} {{ permit.agency.state }} , {{ permit.agency.zip_code }}</p>
+                <p><strong> </strong>{{ permit.agency.phone_number}} </p>
                 <p><strong> </strong>{{ permit.company }}  </p>
 
                 <a href="{% url 'permit' %}" class="btn btn-sm btn-primary shadow-sm">Back</a>

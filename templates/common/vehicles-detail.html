@@ -44,7 +44,7 @@
             <div class="row1" >
                 {% for image in image %}
                      <a href="{{ image.image_image.url }}"</a>
-                     <img src="{{ image.image_image.url }}"  onerror="this.onerror=null;this.src='/media/image/pdf.png'" style="width:100px;height:100px;">
+                     <img src="{{ image.image_image.url }}" class="mt-1 mb-1 mr-1" onerror="this.onerror=null;this.src='/media/image/pdf.png'" style="width:100px;height:100px;">
                 {% endfor %}
                          <p></p>
             <br>
