@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+<style>
+a:link {
+  text-decoration: none;
+}
+</style>
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+        <h1 class="h3 mb-0 text-gray-800">Permit</h1>
+        </div>
+
+        <!-- Main Content Here -->
+
+        <h1>{{ permit.company.name }}</h1>
+
+                 <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Permit No.</th>
+                            <th>Agency</th>
+                            <th>Vehicle</th>
+                            <th>Class</th>
+                            <th>Expires</th>
+                            <th>Type</th>
+                            <th>Thumbnail</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+              {% for per in permit %}
+                            <td>{{ per.company }}</td>
+                            <td><a href="{% url 'permit-update' per.pk %}"><strong>{{ per.permit_cn }}</strong></a></td>
+                            <td>{{ per.agency }}</td>
+                            <td>{{ per.vehicle }}</td>
+                            <td>{{ per.permit_class }}</td>
+                            <td>{{ per.valid_to }}</td>
+                            <td>{{ per.get_agency_type_display }}</td>
+                            <td> <a href="{{ per.pdf.url }}">
+                                <img src="{{ per.pdf.url }}" onerror="this.onerror=null;this.src='/media/image/pdf.png'" style="width:30px;height:30px;"></td>
+{#                            <td>{{ per.note }} </td>#}
+                            <td><details>
+                                <summary>Notes</summary>
+                                <p>{{ per.note }} </p>
+                            </details></td>
+
+                  </tbody>
+              {% endfor %}
+                 </table>
+
+
+    </div>
+    <!-- /.container-fluid -->
+{% endblock content %}

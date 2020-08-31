@@ -29,7 +29,7 @@ class Agency(models.Model):
     state = models.CharField(max_length=2, default='CA', blank=True, null=True)
     zip_code = models.CharField(max_length=10, blank=True)
     phone_number = models.CharField(max_length=14, blank=True)
-    fax = models.CharField(max_length=20)
+    fax_number = models.CharField(max_length=20, blank=True)
     email = models.EmailField(max_length=150, default='unk@unk.com')
     website = models.CharField(max_length=200, blank=True)
     notes = models.TextField(null=True, blank=True)

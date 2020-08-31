@@ -38,7 +38,12 @@ a:link {
                             <td>{{ doc.end_date }}</td>
                             <td> <a href="{{ doc.pdf.url }}">
                                 <img src="{{ doc.pdf.url }}" onerror="this.onerror=null;this.src='/media/image/pdf.png'" style="width:55px;height:55px;"></td>
-                            <td>{{ doc.note }} </td>
+{#                            <td>{{ doc.note }} </td>                   #}
+                            <td><details>
+                                <summary>Notes</summary>
+                                <p>{{ doc.note }} </p>
+                            </details></td>
+
                   </tbody>
 
               {% endfor %}

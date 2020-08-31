@@ -33,7 +33,8 @@ a:link {
                             <td><a href="{% url 'image-update' img.pk %}"><strong>{{ img.equip_number }}</strong></a></td>
                             <td>{{ img.notes }} </td>
                             <td> <a href="{{ img.image_image.url }}">
-                                <img src="{{ img.image_image.url }}" alt="PDF" style="width:55px;height:55px;"></td>
+{#                                <img src="{{ img.image_image.url }}" alt="PDF" style="width:55px;height:55px;"></td>#}
+                            <img src="{{ img.image_image.url }}" onerror="this.onerror=null;this.src='/media/image/pdf.png'" style="width:55px;height:55px;">
                   </tbody>
 
               {% endfor %}

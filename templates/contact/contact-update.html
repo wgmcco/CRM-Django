@@ -8,7 +8,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
-        <h1 class="h3 mb-0 text-gray-800">Edit Company</h1>
+        <h1 class="h3 mb-0 text-gray-800">Edit Contact</h1>
         </div>
 
         <!-- Main Content Here -->
@@ -24,12 +24,15 @@
                   <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{form | crispy}}
-                    <button type="submit" class="btn btn-success btn-block">Update</button>
+                      <br><br>
+                    <button type="submit" class="btn btn-md btn-outline-info shadow-sm">Update</button>
+                      &nbsp;
+                <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'contact' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
+
                   </form>
                   <hr>
-                  <div class="text-center">
-                    <a class="small" href="{% url 'company' %}">Back</a>
-                  </div>
                 </div>
               </div>
             </div>

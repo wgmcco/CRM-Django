@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 
 
 class ContactView(LoginRequiredMixin, ListView):
-    template_name = 'common/contact.html'
+    template_name = 'contact/contact.html'
     model = Contact
     queryset = Contact.objects.order_by('com')
     context_object_name = "contact"
@@ -18,21 +18,21 @@ class ContactView(LoginRequiredMixin, ListView):
 
 
 class ContactDetailView(LoginRequiredMixin, DetailView):
-    template_name = 'common/contact-detail.html'
+    template_name = 'contact/contact-detail.html'
     model = Contact
     context_object_name = "contact"
     login_url = reverse_lazy('home')
 
 
 class ContactAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    template_name = 'common/contact-add.html'
+    template_name = 'contact/contact-add.html'
     model = Contact
     success_message = "Contact was added successfully"
     fields = '__all__'
 
 
 class ContactUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    template_name = 'common/contact-update.html'
+    template_name = 'contact/contact-update.html'
     model = Contact
     success_message = "Contact was updated successfully"
     fields = '__all__'

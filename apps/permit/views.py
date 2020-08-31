@@ -10,28 +10,28 @@ from django.urls import reverse_lazy
 
 
 class PermitAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    template_name = 'common/permit-add.html'
+    template_name = 'permit/permit-add.html'
     model = Permit
     success_message = "Permit was added successfully"
     fields = '__all__'
 
 
 class PermitView(LoginRequiredMixin, ListView):
-    template_name = 'common/permit.html'
+    template_name = 'permit/permit.html'
     model = Permit
     context_object_name = "permit"
     login_url = reverse_lazy('home')
 
 
 class PermitDetailView(LoginRequiredMixin, DetailView):
-    template_name = 'common/permit-detail.html'
+    template_name = 'permit/permit-detail.html'
     model = Permit
     context_object_name = "permit"
     login_url = reverse_lazy('home')
 
 
 class PermitUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    template_name = 'common/permit-update.html'
+    template_name = 'permit/permit-update.html'
     model = Permit
     success_message = "Permit was updated successfully"
     fields = '__all__'

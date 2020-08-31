@@ -10,14 +10,14 @@ from django.urls import reverse_lazy
 
 
 class CompanyAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    template_name = 'common/company-add.html'
+    template_name = 'company/company-add.html'
     model = Company
     success_message = "Company was added successfully"
     fields = '__all__'
 
 
 class CompanyView(LoginRequiredMixin, ListView):
-    template_name = 'common/company.html'
+    template_name = 'company/company.html'
     model = Company
     queryset = Company.objects.order_by('name')
     context_object_name = "company"
@@ -25,20 +25,20 @@ class CompanyView(LoginRequiredMixin, ListView):
 
 
 class CompanyDetailView(LoginRequiredMixin, DetailView):
-    template_name = 'common/company-detail.html'
+    template_name = 'company/company-detail.html'
     model = Company
     context_object_name = "company"
     login_url = reverse_lazy('home')
 
 
 class CompanyUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    template_name = 'common/company-update.html'
+    template_name = 'company/company-update.html'
     model = Company
     success_message = "Company was updated successfully"
     fields = '__all__'
 
 
 class CompanyTemplateView(LoginRequiredMixin, SuccessMessageMixin, TemplateView):
-    template_name = 'common/dashboard.html'
+    template_name = 'company/dashboard.html'
     model = Company
     fields = '__all__'

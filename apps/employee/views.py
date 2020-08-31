@@ -10,28 +10,28 @@ from django.urls import reverse_lazy
 
 
 class EmployeeAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    template_name = 'common/employee-add.html'
+    template_name = 'employee/employee-add.html'
     model = Employee
     success_message = "Employee was added successfully"
     fields = '__all__'
 
 
 class EmployeeView(LoginRequiredMixin, ListView):
-    template_name = 'common/employee.html'
+    template_name = 'employee/employee.html'
     model = Employee
     context_object_name = "employee"
     login_url = reverse_lazy('home')
 
 
 class EmployeeDetailView(LoginRequiredMixin, DetailView):
-    template_name = 'common/employee-detail.html'
+    template_name = 'employee/employee-detail.html'
     model = Employee
     context_object_name = "employee"
     login_url = reverse_lazy('home')
 
 
 class EmployeeUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    template_name = 'common/employee-update.html'
+    template_name = 'employee/employee-update.html'
     model = Employee
     success_message = "Employee was updated successfully"
     fields = '__all__'

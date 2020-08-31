@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 
 
 class ImageView(LoginRequiredMixin, ListView):
-    template_name = 'common/image.html'
+    template_name = 'image/image.html'
     model = Image
     queryset = Image.objects.all()
     context_object_name = "image"
@@ -18,21 +18,21 @@ class ImageView(LoginRequiredMixin, ListView):
 
 
 class ImageDetailView(LoginRequiredMixin, DetailView):
-    template_name = 'common/image-detail.html'
+    template_name = 'image/image-detail.html'
     model = Image
     context_object_name = "image"
     login_url = reverse_lazy('home')
 
 
 class ImageAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    template_name = 'common/image-add.html'
+    template_name = 'image/image-add.html'
     model = Image
     success_message = "Image was added successfully"
     fields = '__all__'
 
 
 class ImageUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    template_name = 'common/image-update.html'
+    template_name = 'image/image-update.html'
     model = Image
     success_message = "Image was updated successfully"
     fields = '__all__'
