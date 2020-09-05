@@ -36,7 +36,7 @@ a:link {
                     </thead>
                     <tbody>
               {% for comp in company %}
-                            <td><a href="{% url 'company-update' comp.pk %}">
+                            <td><a href="{% url 'company-detail' comp.pk %}">
                                 <strong>{{ comp.name }}</strong></a></td>
                             <td>{{ comp.get_company_type_display }} </td>
                             <td>{{ comp.phone_number }} </td>

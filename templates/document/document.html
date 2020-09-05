@@ -34,7 +34,7 @@ a:link {
                     <tbody>
               {% for doc in document %}
                             <td>{{ doc.company }}</td>
-                            <td><a href="{% url 'document-update' doc.pk %}"><strong>{{ doc.get_type_display }}</strong></a></td>
+                            <td><a href="{% url 'document-detail' doc.pk %}"><strong>{{ doc.get_type_display }}</strong></a></td>
                             <td>{{ doc.end_date }}</td>
                             <td> <a href="{{ doc.pdf.url }}">
                                 <img src="{{ doc.pdf.url }}" onerror="this.onerror=null;this.src='/media/image/pdf.png'" style="width:55px;height:55px;"></td>

@@ -38,7 +38,7 @@ a:link {
                     <tbody>
               {% for per in permit %}
                             <td>{{ per.company }}</td>
-                            <td><a href="{% url 'permit-update' per.pk %}"><strong>{{ per.permit_cn }}</strong></a></td>
+                            <td><a href="{% url 'permit-detail' per.pk %}"><strong>{{ per.permit_cn }}</strong></a></td>
                             <td>{{ per.agency }}</td>
                             <td>{{ per.vehicle }}</td>
                             <td>{{ per.permit_class }}</td>

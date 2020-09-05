@@ -28,8 +28,12 @@
                 <p><strong> </strong>{{ agency.phone_number}} </p>
                 <p><strong> </strong>{{ agency.get_agency_type_display }}  </p>
 
-                <a href="{% url 'agency' %}" class="btn btn-sm btn-primary shadow-sm">Back</a>
-                <a href="{% url 'agency-update' agency.pk %}" class="btn btn-sm btn-danger shadow-sm">Edit</a>
+                 <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'agency' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>&nbsp;
+                 <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'agency-update' agency.pk %}"><i class="fa fa-pencil fa-lg"></i>&nbsp;  Edit</a>&nbsp;
+                 <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
+
+
+
             </div>
           </div>
         </div>

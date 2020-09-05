@@ -24,13 +24,15 @@
                   <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{form | crispy}}
-                     <img src="{{ object.image_image.url }}" style="width:55px;height:50px;"><br><br>
-                    <button type="submit" class="btn btn-success btn-block">Update</button>
+                      <br><br>
+                        <button type="submit" class="btn btn-md btn-outline-info shadow-sm">Update</button>
+                         &nbsp;
+                        <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'image' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
+{#                     <img src="{{ object.image_image.url }}" style="width:55px;height:50px;"><br><br>#}
                   </form>
                   <hr>
-                  <div class="text-center">
-                    <a class="small" href="{% url 'image' %}">Back</a>
-                  </div>
                 </div>
               </div>
             </div>

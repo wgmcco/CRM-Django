@@ -25,11 +25,16 @@
                     {% csrf_token %}
                     {{form | crispy}}
                       <br><br>
-                    <button type="submit" class="btn btn-md btn-outline-info shadow-sm">Update</button>
+                        <button type="submit" class="btn btn-md btn-outline-info shadow-sm">Update</button>
                       &nbsp;
-                <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'contact' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
+                        <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'contact' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
+{#                    <button type="submit" class="btn btn-md btn-outline-info shadow-sm">Update</button>#}
+{#                      &nbsp;#}
+{#                <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'contact' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>#}
+{#                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#                <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>#}
 
                   </form>
                   <hr>

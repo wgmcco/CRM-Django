@@ -21,10 +21,10 @@
                 <h1><strong>{{ insurance.get_type_display }} / {{ insurance.company }}</strong></h1>
                 <p><strong> </strong>{{ insurance.start_date }} {{ insurance.end_date }} </p>
                 <p><strong> </strong>{{ insurance.note}} </p>
+             <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'insurance' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>&nbsp;
+             <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'insurance-update' insurance.pk %}"><i class="fa fa-pencil fa-lg"></i>&nbsp;  Edit</a>&nbsp;
+             <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
 
-
-                <a href="{% url 'insurance' %}" class="btn btn-sm btn-primary shadow-sm">Back</a>
-                <a href="{% url 'insurance-update' insurance.pk %}" class="btn btn-sm btn-danger shadow-sm">Edit</a>
             </div>
           </div>
         </div>
