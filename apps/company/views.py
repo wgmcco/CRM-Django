@@ -23,6 +23,20 @@ class CompanyView(LoginRequiredMixin, ListView):
     context_object_name = "company"
     login_url = reverse_lazy('home')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['query'] = self.request.GET.get('q')
+        return context
+
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q', None)
+
+        if query is not None:
+            results = Company.objects.search(query)
+            return results
+        return Company.objects.order_by('name')
+
 
 class CompanyDetailView(LoginRequiredMixin, DetailView):
     template_name = 'company/company-detail.html'

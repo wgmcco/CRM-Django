@@ -15,6 +15,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f6b0b80676.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 
@@ -22,6 +23,7 @@
   <link rel="stylesheet" href="{% static 'date-time-phone/jquery-ui.css' %}">
   <link rel='stylesheet' href="{% static 'date-time-phone/jquery-ui-timepicker-addon.css' %}" />
   <!-- Date Time Picker CSS -->
+
 
 </head>
 
@@ -128,23 +130,46 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'search' %}">
         <i class="fa fa-search"></i>
-          <span>SEARCH</span></a>
+          <span>Search site wide</span></a>
       </li>
 
-    <div>
-    <form method='GET' class='' action='.'>
 
-        <div class="input-group form-group-no-border mx-auto" style="margin-bottom: 0px; font-size: 32px;">
-            <span class="input-group-addon cfe-nav" style='color:#000'>
-                <i class="fa fa-search fa-xs"></i>
-            </span>
-            <input type="text" name="q" data-toggle="popover" data-placement="bottom" data-content="Press enter to search" class="form-control cfe-nav mt-0 py-3" placeholder="Search..." value="" style="" data-original-title="" title="" autofocus="autofocus">
+<script>
+$(document).ready(function(){
+    $("#myModal").on('shown.bs.modal', function(){
+        $(this).find('input[type="text"]').focus();
+    });
+});
+</script>
+<style>
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+<div class="bs-example">
+    <!-- Button HTML (to Trigger Modal) -->
+    <a href="#myModal" data-toggle="modal"><i class="fa fa-search fa-3x"></i></a>
+
+    <!-- Modal HTML -->
+    <div form method="GET" id="myModal" class="modal fade" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputName">Search</label>
+                            <input type="text" name='q' class="form-control" id="inputName" placeholder="Leave blank for all" >
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Send</button>
+                </div>
+            </div>
         </div>
-
-    </form>
-
     </div>
-
+</div>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -237,6 +262,8 @@
     });
   </script>
   <!-- Phone Mask JS -->
+
+
 
 </body>
 

@@ -12,6 +12,7 @@ from django.urls import reverse_lazy
 class PermitAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'permit/permit-add.html'
     model = Permit
+    queryset = Permit.objects.order_by('permit_cn')
     success_message = "Permit was added successfully"
     fields = '__all__'
 
@@ -21,6 +22,21 @@ class PermitView(LoginRequiredMixin, ListView):
     model = Permit
     context_object_name = "permit"
     login_url = reverse_lazy('home')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['query'] = self.request.GET.get('q')
+        return context
+
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q', None)
+
+        if query is not None:
+            results = Permit.objects.search(query)
+            return results
+        return Permit.objects.order_by('permit_cn')
+
 
 
 class PermitDetailView(LoginRequiredMixin, DetailView):

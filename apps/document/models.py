@@ -2,7 +2,22 @@ from django.db import models
 from apps.employee.utils import DOCUMENT_TYPE
 from django.urls import reverse_lazy
 from apps.company.models import Company
-from django.contrib import messages
+from django.db.models import Q
+
+# from django.contrib import messages
+
+class PostManager(models.Manager):
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query is not None:
+            or_lookup = (Q(company__name__icontains=query) |
+                         Q(type__icontains=query) |
+                         Q(start_date__icontains=query) |
+                         Q(end_date__icontains=query) |
+                         Q(note__icontains=query)
+                        )
+            qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
+        return qs
 
 
 class Document(models.Model):
@@ -14,6 +29,8 @@ class Document(models.Model):
     note = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    objects = PostManager()
 
     class Meta(object):
         verbose_name = "Document"

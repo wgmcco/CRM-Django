@@ -13,8 +13,20 @@ class PostManager(models.Manager):
         if query is not None:
             or_lookup = (Q(name__icontains=query) |
                          Q(company_type__icontains=query) |
-                         Q(city__icontains=query)
-                        )
+                         Q(address1__icontains=query) |
+                         Q(address2__icontains=query) |
+                         Q(city__icontains=query) |
+                         Q(state__icontains=query) |
+                         Q(zip_code__icontains=query) |
+                         Q(phone_number__icontains=query) |
+                         Q(fax_phone__icontains=query) |
+                         Q(contacts__first_name__icontains=query)|
+                         Q(contacts__last_name__icontains=query) |
+                         Q(email__icontains=query) |
+                         Q(notes__icontains=query) |
+                         Q(type__icontains=query) |
+                         Q(owner__icontains=query)
+                         )
             qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
         return qs
 

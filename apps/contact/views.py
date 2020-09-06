@@ -17,6 +17,21 @@ class ContactView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('home')
 
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['query'] = self.request.GET.get('q')
+        return context
+
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q', None)
+
+        if query is not None:
+            results = Contact.objects.search(query)
+            return results
+        return Contact.objects.order_by('com')
+
+
 class ContactDetailView(LoginRequiredMixin, DetailView):
     template_name = 'contact/contact-detail.html'
     model = Contact

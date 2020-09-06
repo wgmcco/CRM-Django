@@ -12,7 +12,18 @@ class PostManager(models.Manager):
             or_lookup = (Q(city__icontains=query) |
                          Q(first_name__icontains=query) |
                          Q(last_name__icontains=query) |
-                         Q(com__name__icontains=query)
+                         Q(com__name__icontains=query) |
+                         Q(address1__icontains=query) |
+                         Q(address2__icontains=query) |
+                         Q(state__icontains=query) |
+                         Q(zip_code__icontains=query) |
+                         Q(phone_number__icontains=query) |
+                         Q(fax__icontains=query) |
+                         Q(email__icontains=query) |
+                         Q(social_number__icontains=query) |
+                         Q(emergency_phone__icontains=query) |
+                         Q(emergency_contact__icontains=query) |
+                         Q(notes__icontains=query)
                         )
             qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
         return qs

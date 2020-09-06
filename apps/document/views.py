@@ -23,6 +23,20 @@ class DocumentView(LoginRequiredMixin, ListView):
     context_object_name = "document"
     login_url = reverse_lazy('home')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['query'] = self.request.GET.get('q')
+        return context
+
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q', None)
+
+        if query is not None:
+            results = Document.objects.search(query)
+            return results
+        return Document.objects.order_by('company')
+
 
 class DocumentDetailView(LoginRequiredMixin, DetailView):
     template_name = 'document/document-detail.html'

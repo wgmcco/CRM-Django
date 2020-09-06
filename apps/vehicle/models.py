@@ -6,6 +6,28 @@ from apps.employee.utils import CATEGORY
 from apps.employee.models import Employee
 from apps.company.models import Company
 from apps.image.models import Image
+from django.db.models import Q
+
+
+class PostManager(models.Manager):
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query is not None:
+            or_lookup = (Q(equip_number__icontains=query) |
+                         Q(category__icontains=query) |
+                         Q(equip_name__icontains=query) |
+                         Q(equip_driver__first_name__icontains=query) |
+                         Q(equip_driver__last_name__icontains=query) |
+                         Q(model_year__icontains=query) |
+                         Q(owner__name__icontains=query) |
+                         Q(vin_number__icontains=query) |
+                         Q(license_number__icontains=query) |
+                         Q(make__icontains=query) |
+                         Q(model__icontains=query) |
+                         Q(note__icontains=query)
+                        )
+            qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
+        return qs
 
 
 # Equipment with tires
@@ -30,6 +52,8 @@ class Vehicle(models.Model):
     note = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    objects = PostManager()
 
     def __str__(self):
         return self.equip_number
