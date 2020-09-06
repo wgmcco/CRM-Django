@@ -22,6 +22,7 @@ class InsuranceView(LoginRequiredMixin, ListView):
     queryset = Insurance.objects.order_by('company')
     context_object_name = "insurance"
     login_url = reverse_lazy('home')
+    paginate_by = 3
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

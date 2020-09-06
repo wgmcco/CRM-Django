@@ -22,6 +22,7 @@ class DocumentView(LoginRequiredMixin, ListView):
     queryset = Document.objects.order_by('company')
     context_object_name = "document"
     login_url = reverse_lazy('home')
+    paginate_by = 12
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

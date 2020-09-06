@@ -13,9 +13,9 @@ class ImageView(LoginRequiredMixin, ListView):
     template_name = 'image/image.html'
     model = Image
     queryset = Image.objects.order_by('equip_number')
-    # queryset = Agency.objects.order_by('agency_name')
     context_object_name = "image"
     login_url = reverse_lazy('home')
+    paginate_by = 9
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

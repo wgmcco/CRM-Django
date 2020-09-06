@@ -22,6 +22,7 @@ class PermitView(LoginRequiredMixin, ListView):
     model = Permit
     context_object_name = "permit"
     login_url = reverse_lazy('home')
+    paginate_by = 12
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

@@ -16,6 +16,7 @@ class VehicleView(LoginRequiredMixin, ListView):
     queryset = Vehicle.objects.order_by('equip_number')
     context_object_name = "vehicle"
     login_url = reverse_lazy('home')
+    paginate_by = 1
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

@@ -22,6 +22,7 @@ class CompanyView(LoginRequiredMixin, ListView):
     queryset = Company.objects.order_by('name')
     context_object_name = "company"
     login_url = reverse_lazy('home')
+    paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

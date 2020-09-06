@@ -14,6 +14,7 @@ from apps.insurance.models import Insurance
 from apps.document.models import Document
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+# from django.core.paginator import Paginator
 
 from django.urls import reverse_lazy
 
@@ -24,6 +25,7 @@ class AgencyView(LoginRequiredMixin, ListView):
     queryset = Agency.objects.order_by('agency_name')
     context_object_name = "agency"
     login_url = reverse_lazy('home')
+    paginate_by = 2
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -64,7 +66,7 @@ class AgencyUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 class SearchView(ListView):
 
     template_name = 'common/view.html'
-    paginate_by = 200
+    paginate_by = 10
     count = 0
 
     def get_context_data(self, *args, **kwargs):
@@ -75,7 +77,7 @@ class SearchView(ListView):
 
     def get_queryset(self):
         request = self.request
-        query = request.GET.get('q', None)
+        query = request.GET.get('q', "")
 
         if query is not None:
             agency_results = Agency.objects.search(query)
@@ -101,7 +103,7 @@ class SearchView(ListView):
                 documents_results
             )
             qs = sorted(queryset_chain,
-                        key=lambda instance: instance.pk,
+                        key=lambda instance: (object.__name__),
                         reverse=True)
             self.count = len(qs)  # since qs is actually a list
             return qs
