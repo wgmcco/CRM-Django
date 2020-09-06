@@ -32,8 +32,8 @@ class PostManager(models.Manager):
 # People that are not employees just foreman , sub drivers, people
 class Contact(models.Model):
     com = models.ForeignKey(Company, blank=True, null=True, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=20, blank=True)
-    last_name = models.CharField(max_length=50, blank=True)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=50)
     address1 = models.CharField(max_length=50, blank=True)
     address2 = models.CharField(max_length=50, blank=True)
     city = models.CharField(max_length=25, blank=True)

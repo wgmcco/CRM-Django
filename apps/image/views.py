@@ -12,9 +12,24 @@ from django.urls import reverse_lazy
 class ImageView(LoginRequiredMixin, ListView):
     template_name = 'image/image.html'
     model = Image
-    queryset = Image.objects.all()
+    queryset = Image.objects.order_by('equip_number')
+    # queryset = Agency.objects.order_by('agency_name')
     context_object_name = "image"
     login_url = reverse_lazy('home')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['query'] = self.request.GET.get('q')
+        return context
+
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q', None)
+
+        if query is not None:
+            results = Image.objects.search(query)
+            return results
+        return Image.objects.order_by('equip_number')
 
 
 class ImageDetailView(LoginRequiredMixin, DetailView):

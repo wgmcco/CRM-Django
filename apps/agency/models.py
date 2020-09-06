@@ -28,7 +28,7 @@ class PostManager(models.Manager):
 
 # Muni names for permits
 class Agency(models.Model):
-    agency_name = models.CharField(max_length=50, blank=True)
+    agency_name = models.CharField(max_length=50)
     agency_type = models.CharField(max_length=2, choices=TYPE, blank=True, null=True)
     first_name = models.CharField(max_length=20, blank=True)
     last_name = models.CharField(max_length=50, blank=True)

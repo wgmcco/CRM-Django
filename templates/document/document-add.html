@@ -24,12 +24,14 @@
                   <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{form | crispy}}
-                    <button type="submit" class="btn btn-success btn-block">Add</button>
-                  </form>
+
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="{% url 'dashboard' %}">Back</a>
+                    <button type="submit" class="btn btn-md btn-outline-info shadow-sm"><i class="fa fa-pencil fa-lg"></i>Add</button>
+                    <a class="small" href="{% url 'dashboard' %}"></a>&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'dashboard' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>&nbsp;
                   </div>
+                  </form>
                 </div>
               </div>
             </div>

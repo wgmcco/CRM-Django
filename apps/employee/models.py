@@ -3,9 +3,33 @@ from django.db import models
 from .utils import STATE, CLASS
 from django.urls import reverse_lazy
 from django.contrib import messages
-
 from ..company.models import Company
+from django.db.models import Q
 
+
+class PostManager(models.Manager):
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query is not None:
+            or_lookup = (Q(company__name__icontains=query) |
+                         Q(first_name__icontains=query) |
+                         Q(last_name__icontains=query) |
+                         Q(address1__icontains=query) |
+                         Q(address2__icontains=query) |
+                         Q(city__icontains=query) |
+                         Q(state__icontains=query) |
+                         Q(zip_code__icontains=query) |
+                         Q(phone_number__icontains=query) |
+                         Q(emergency_phone__icontains=query) |
+                         Q(emergency_contact__icontains=query) |
+                         Q(social_number__icontains=query) |
+                         Q(dob__icontains=query) |
+                         Q(hire_date__icontains=query) |
+                         Q(cdl_expires__icontains=query) |
+                         Q(notes__icontains=query)
+                        )
+            qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
+        return qs
 
 # Hired people only
 class Employee(models.Model):
@@ -32,6 +56,8 @@ class Employee(models.Model):
     profile_image = models.ImageField(default='equipment/default.jpg', upload_to='equipment/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+
+    objects = PostManager()
 
     class Meta(object):
         unique_together = ("first_name", "last_name")

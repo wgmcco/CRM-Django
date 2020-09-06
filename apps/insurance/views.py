@@ -19,8 +19,23 @@ class InsuranceAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 class InsuranceView(LoginRequiredMixin, ListView):
     template_name = 'insurance/insurance.html'
     model = Insurance
+    queryset = Insurance.objects.order_by('company')
     context_object_name = "insurance"
     login_url = reverse_lazy('home')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['query'] = self.request.GET.get('q')
+        return context
+
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q', None)
+
+        if query is not None:
+            results = Insurance.objects.search(query)
+            return results
+        return Insurance.objects.order_by('company')
 
 
 class InsuranceDetailView(LoginRequiredMixin, DetailView):

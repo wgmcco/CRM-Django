@@ -9,7 +9,8 @@ class PostManager(models.Manager):
         qs = self.get_queryset()
         if query is not None:
             or_lookup = (Q(name__icontains=query) |
-                         Q(equip_number__equip_number__icontains=query)
+                         Q(equip_number__equip_number__icontains=query) |
+                         Q(notes__icontains=query)
                         )
             qs = qs.filter(or_lookup).distinct() # distinct() is often necessary with Q lookups
         return qs

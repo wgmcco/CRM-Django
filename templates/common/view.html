@@ -12,16 +12,16 @@ $(document).ready(function(){
     });
 });
 </script>
-<style>
-    .bs-example{
-    	margin: 20px;
-    }
-</style>
+{#<style>#}
+{#    .bs-example{#}
+{#    	margin: 20px;#}
+{#    }#}
+{#</style>#}
 </head>
 <body>
 <div class="bs-example">
     <!-- Button HTML (to Trigger Modal) -->
-    <a href="#myModal" data-toggle="modal"><i class="fa fa-search fa-lg"></i></a>
+{#    <a href="#myModal" data-toggle="modal"><i class="fa fa-search fa-lg"></i></a>#}
 
     <!-- Modal HTML -->
 {#    <form method='GET' class='' action='.'>#}
@@ -73,8 +73,8 @@ $(document).ready(function(){
 {#        </div>#}
 {#    </div>#}
 {#</div>#}
-</body>
-</html>
+{#</body>#}
+{#</html>#}
 
 
 
@@ -103,14 +103,45 @@ $(document).ready(function(){
       {% elif klass == 'Image' %}
            <div class='row'>
                 <div class='col-4'>
-                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.name }} / {{ object.notes }}</a>
+                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.name }} / {{ object.notes }} / {{ object.equip_number }}</a>
+                    <br>
+                </div>
+            </div>
+      {% elif klass == 'Employee' %}
+           <div class='row'>
+                <div class='col-4'>
+                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.first_name }} {{ object.last_name }} / {{ object.company }}</a>
                     <br>
                 </div>
             </div>
       {% elif klass == 'Company' %}
            <div class='row'>
                 <div class='col-4'>
-                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.name }} / {{ object.company_type }}</a>
+                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.name }}</a>
+                </div>
+            </div>
+      {% elif klass == 'Vehicle' %}
+           <div class='row'>
+                <div class='col-8'>
+                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.equip_number }} / {{ object.equip_name }} / {{ object.equip_driver }}</a>
+                </div>
+            </div>
+      {% elif klass == 'Permit' %}
+           <div class='row'>
+                <div class='col-4'>
+                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.permit_cn }} / {{ object.agency }}</a>
+                </div>
+            </div>
+      {% elif klass == 'Insurance' %}
+           <div class='row'>
+                <div class='col-4'>
+                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.company }}</a>
+                </div>
+            </div>
+      {% elif klass == 'Document' %}
+           <div class='row'>
+                <div class='col-4'>
+                   {{ object|class_name }}---<a href='{{ object.get_absolute_url }}'>{{ object.company }}</a>
                 </div>
             </div>
       {% else %}
@@ -119,7 +150,7 @@ $(document).ready(function(){
                 <a href='{{ object.get_absolute_url }}'>{{ object }} | {{ object|class_name }}</a>
             </div>
            </div>
-        {% endif %}
+      {% endif %}
 
     {% endwith %}
 {% empty %}

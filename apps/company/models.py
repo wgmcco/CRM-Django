@@ -33,7 +33,7 @@ class PostManager(models.Manager):
 
 # Companies both Vendors & Subs
 class Company(models.Model):
-    name = models.CharField(max_length=100, blank=True)
+    name = models.CharField(max_length=100)
     company_type = models.CharField(max_length=1, choices=COMPANY_TYPE, blank=True, null=True)
     address1 = models.CharField(max_length=50, blank=True)
     address2 = models.CharField(max_length=50, blank=True)
