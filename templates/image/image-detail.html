@@ -29,7 +29,7 @@
 
                 <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'image' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>&nbsp;
                 <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'image-update' image.pk %}"><i class="fa fa-pencil fa-lg"></i>&nbsp;  Edit</a>&nbsp;
-                <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
+                <a class="btn btn-md btn-outline-danger shadow-sm" href="{% url 'image-delete' image.pk %}"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
 
             </div>
           </div>

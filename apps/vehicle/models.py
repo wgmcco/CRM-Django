@@ -47,7 +47,7 @@ class Vehicle(models.Model):
     length = models.CharField(max_length=150)
     # can remove image_image for here soon
 
-    image_image = models.ManyToManyField(Image, blank=True)
+    # image_image = models.ManyToManyField(Image, blank=True)
     profile_image = models.ImageField(default='equipment/default.jpg', upload_to='equipment/', null=True, blank=True)
     note = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)

@@ -66,7 +66,7 @@ class AgencyUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 class SearchView(ListView):
 
     template_name = 'common/view.html'
-    paginate_by = 10
+    paginate_by = 12
     count = 0
 
     def get_context_data(self, *args, **kwargs):

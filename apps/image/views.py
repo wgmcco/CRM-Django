@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.template import context
 
-from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Image
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -51,3 +51,14 @@ class ImageUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Image
     success_message = "Image was updated successfully"
     fields = '__all__'
+
+
+class ImageDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+    template_name = 'image/image-delete.html'
+    model = Image
+    success_message = "Image was deleted successfully"
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse_lazy('image')
+

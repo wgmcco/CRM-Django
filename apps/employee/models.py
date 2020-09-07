@@ -63,7 +63,7 @@ class Employee(models.Model):
         unique_together = ("first_name", "last_name")
 
     def __str__(self):
-        return '%s %s %s' % (self.company, self.first_name, self.last_name)
+        return '%s %s' % (self.first_name, self.last_name)
 
     def get_absolute_url(self):
         return reverse_lazy('employee-detail', args=[str(self.id)])
