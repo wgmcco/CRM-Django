@@ -1,5 +1,11 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.template import context
+import csv
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+
 
 from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView
 from .models import Company
@@ -7,6 +13,43 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.urls import reverse_lazy
+
+
+def render_pdf_view(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    company = get_object_or_404(Company, pk=pk)
+
+    template_path = 'company/company-pdf.html'
+
+    context = {'company': company}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    # if down load
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # if open in browser
+    response['Content-Disposition'] = 'filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+def companycsv(request):
+    response = HttpResponse(content_type='text/csv')
+    writer = csv.writer(response)
+    writer.writerow(['Company Name', 'Owner Name', 'Phone Number', 'Notes'])
+
+    for company in Company.objects.all().values_list('name', 'owner', 'phone_number', 'notes'):
+        writer.writerow(company)
+    response['Content-Disposition'] = 'attachment; filename="company.csv"'
+
+    return response
 
 
 class CompanyAddView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF</title>
+</head>
+<body>
+<style>
+    @page {
+        size: a4 portrait;
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+        }
+        @frame content_frame {          /* Content Frame */
+            left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+        }
+        @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+        }
+    }
+</style>
+<div id="header_content">
+<h1>{{ company }}</h1>
+</div>
+<div id="content_frame">
+{{ company.address1 }}<br>
+{{ company.address2 }}<br>
+{{ company.city }}, {{ company.state }} {{ company.zip_code }}
+
+<hr>
+        {{ company.owner}}
+<hr>
+        {{ company.get_type_display }}
+<hr>
+        {{ company.address1 }}
+<hr>
+        {{ company.phone_number }}
+<hr>
+        {{ company.notes|linebreaks }}
+<hr>
+{#        {{ company.profile_image.path }}#}
+        <img src="{{ company.profile_image.path}}" height='400px'>
+
+</div>
+
+
+   <div id="footer_content">
+       &#169; 2020
+   </div>
+</body>
+</html>
