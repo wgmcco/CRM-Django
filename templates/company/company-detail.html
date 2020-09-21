@@ -25,12 +25,16 @@
                 <p><strong> </strong>{{ company.address1 }} {{ company.address2 }} </p>
                 <p><strong> </strong>{{ company.city }} {{ company.state }} , {{ company.zip_code }}</p>
                 <p><strong> </strong>{{ company.phone_number}} </p>
+                {% for company in company.contacts.all %}
+                <p><strong>Contact </strong>{{ company }} {{ company.phone_number }} </p>
+                {% endfor %}
                 <p><strong> </strong>{{ company.get_type_display }}  </p>
 
                  <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'company' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>&nbsp;
                  <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'company-update' company.pk %}"><i class="fa fa-pencil fa-lg"></i>&nbsp;  Edit</a>&nbsp;
-                 <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>
-                 <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'company-pdf' company.pk %}"><i class="fa fa-pdf-o fa-lg"></i>&nbsp;Down Load</a>
+                 <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>&nbsp;
+                 <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'company-pdf' company.pk %}"><i class="fa fa-file-pdf-o fa-lg"></i>&nbsp; PDF </a>&nbsp;
+                <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'company-csv' company.pk %}"><i class="fa fa-file-download fa"></i>  CSV </a>
             </div>
           </div>
         </div>

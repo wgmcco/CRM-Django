@@ -10,7 +10,8 @@
         size: a4 portrait;
         @frame header_frame {           /* Static Frame */
             -pdf-frame-content: header_content;
-            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+            left: 50pt; width: 100%; top: 50pt; height: 80pt;
+
         }
         @frame content_frame {          /* Content Frame */
             left: 50pt; width: 512pt; top: 90pt; height: 632pt;
@@ -21,23 +22,23 @@
         }
     }
 </style>
-<div id="header_content">
+<div id="header_content" >
 <h1>{{ company }}</h1>
 </div>
 <div id="content_frame">
 {{ company.address1 }}<br>
 {{ company.address2 }}<br>
-{{ company.city }}, {{ company.state }} {{ company.zip_code }}
-
+{{ company.city }}, {{ company.state }} {{ company.zip_code }}<br>
+{{ company.get_type_display }}
 <hr>
-        {{ company.owner}}
+       <p><strong>Owner - </strong>{{ company.owner}}</p>
 <hr>
-        {{ company.get_type_display }}
+        <strong>Phone - </strong>{{ company.phone_number }}
 <hr>
-        {{ company.address1 }}
-<hr>
-        {{ company.phone_number }}
-<hr>
+                {% for company in company.contacts.all %}
+                <p><strong>Contact -  </strong>{{ company }} {{ company.phone_number }} </p>
+                {% endfor %}
+<h1>--Notes--</h1>
         {{ company.notes|linebreaks }}
 <hr>
 {#        {{ company.profile_image.path }}#}
@@ -47,7 +48,7 @@
 
 
    <div id="footer_content">
-       &#169; 2020
+       &#169; 2020 BpS
    </div>
 </body>
 </html>

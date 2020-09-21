@@ -40,12 +40,28 @@ def render_pdf_view(request, *args, **kwargs):
        return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
 
-def companycsv(request):
+
+# def companycsv(request):
+#     response = HttpResponse(content_type='text/csv')
+#     writer = csv.writer(response)
+#     writer.writerow(['Company Name', 'Owner Name', 'Phone Number', 'Notes'])
+#
+#     for company in Company.objects.all().values_list('name', 'owner', 'phone_number', 'notes'):
+#         writer.writerow(company)
+#     response['Content-Disposition'] = 'attachment; filename="company.csv"'
+#
+#     return response
+
+
+def companycsv(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    company = get_object_or_404(Company, pk=pk)
+
     response = HttpResponse(content_type='text/csv')
     writer = csv.writer(response)
-    writer.writerow(['Company Name', 'Owner Name', 'Phone Number', 'Notes'])
+    writer.writerow(['Company Name', 'Company Type', 'Address1', 'Address2', 'City', 'State', 'Zip', 'Phone Number', 'Fax Number', 'Owner', 'Email', 'Type', 'Notes', 'Contact First', 'Last', 'Phone'])
 
-    for company in Company.objects.all().values_list('name', 'owner', 'phone_number', 'notes'):
+    for company in Company.objects.filter(pk=pk).values_list('name', 'company_type', 'address1', 'address2', 'city', 'state', 'zip_code', 'phone_number', 'fax_phone', 'owner', 'email', 'type', 'notes', 'contact__first_name', 'contact__last_name', 'contact__phone_number'):
         writer.writerow(company)
     response['Content-Disposition'] = 'attachment; filename="company.csv"'
 

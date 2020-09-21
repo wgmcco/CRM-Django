@@ -25,10 +25,14 @@
                     {% csrf_token %}
                     {{form | crispy}}
                       <br><br>
-                         &nbsp;
+                         &nbsp;<div class="container">
+                      <h1>Delete Image<span>  ARE YOU SURE</span></h1>
+                      <br><br>
+                  </div>
                         <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'image' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <a><input type="submit" class="btn btn-md btn-outline-danger shadow-sm" value="Confirm"></a>
+{#                      <a><input type="submit" class="btn btn-md btn-outline-danger shadow-sm" value="Confirm"></a>#}
+                      <button type="submit" class="btn btn-md btn-outline-danger shadow-sm"><i class="fa fa-trash-o fa-lg>"></i>&nbsp;Delete</button>
 
                       <hr>
                      <img src="{{ object.image_image.url }}" style="width:200px;height:200px;"><br><br>

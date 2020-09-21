@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container-fluid">
+{#  <div class="row">#}
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+        <h1 class="h3 mb-0 text-gray-800">Vehicles</h1>
+        </div>
+    <div class="col-lg-10">
+      <div class="card">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs" id="bologna-list" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" href="#description" role="tab" aria-controls="description" aria-selected="false">Description</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active"  href="#history" role="tab" aria-controls="history" aria-selected="true">Picture</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#deals" role="tab" aria-controls="deals" aria-selected="false">Details</a>
+            </li>
+          </ul>
+        </div>
+                    {% for equip in vehicle %}
+      <div class="card o-hidden border-0 shadow-lg my-12 col-lg-12">
+        <div class="card-body">
+          <h4 class="card-title">Eq# {{ equip.equip_number }}</h4>
+          <h6 class="card-subtitle mb-2">Vin# {{ equip.vin_number }}</h6>
+
+           <div class="tab-content mt-12">
+            <div class="tab-pane" id="description" role="tabpanel">
+              <p class="card-text"></p>
+                <h1>{{equip.equip_driver}}</h1>
+                <p><strong>Equipment Number </strong>{{ equip.equip_number }}  </p>
+                <p><strong>Name </strong>{{ equip.equip_name }} </p>
+                <p><strong>Driver </strong>{{ equip.equip_driver.first_name }} {{ equip.equip_driver.last_name }}</p>
+                <p style="color:red"><strong>Driver Medical Expires on : {{ equip.equip_driver.med_expires }}</strong> </p>
+                <p><strong>Year </strong>{{ equip.model_year }} </p>
+                <p><strong>Owner </strong>{{ equip.owner }} </p>
+                <p><strong>Date:  </strong>{{ equip.purchased_date }}  </p>
+                <p><strong>Vin Number: </strong>{{ equip.vin_number }}  </p>
+                <p><strong>Licence Number: </strong>{{ equip.license_number }}  </p>
+                <p><strong>Make: </strong>{{ equip.make }}  </p>
+             <a href="{% url 'vehicle-detail' equip.pk %}" class=""></a>
+              <a href="#" class="card-link text-danger">Read more</a>
+            </div>
+
+            <div class="tab-pane active" id="history" role="tabpanel" aria-labelledby="history-tab">
+              <p class="card-text"></p>
+
+                  <div class="row">
+                     <div class="col-lg-12"></div>
+                        <div class="col-lg-12 my-5">
+                        <a href="{% url 'vehicle-detail' equip.pk %}" </a>
+                        <img src="{{equip.profile_image.url}}" class="rounded" height="370px" width="600px">
+                    </div>
+                  </div>
+              {% endfor %}
+              <a href="#" class="card-link text-danger">Read more</a>
+            </div>
+
+            <div class="tab-pane" id="deals" role="tabpanel" aria-labelledby="deals-tab">
+              <p class="card-text"></p>
+              <a href="#" class="btn btn-danger btn-sm">Get Deals</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{#</div>#}
+
+<script>
+    $('#bologna-list a').on('click', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+    })
+</script>
+
+{% endblock content %}

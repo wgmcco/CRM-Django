@@ -46,7 +46,7 @@ class Contact(models.Model):
     emergency_phone = models.CharField(max_length=14, blank=True)
     emergency_contact = models.CharField(max_length=14, blank=True)
     notes = models.TextField(null=True, blank=True)
-    profile_image = models.ImageField(default='contact/default.jpg', upload_to='contact/', null=True, blank=True)
+    profile_image = models.ImageField(default='contact/default_person.png', upload_to='contact/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now=True)
     date_updated = models.DateTimeField(auto_now_add=True)
 
