@@ -25,11 +25,11 @@ a:link {
         <div class="row">
          {% for contact in contact %}
              <a href="{% url 'contact-detail' contact.pk %}" class="">
-            <div class="col-xl-4 col-md-3 mb-4">
+            <div class="col-xl-3 col-md-3 mb-4">
                <div class="card border-left-primary shadow h-100 py-2">
                  <div class="card-body">
                   <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
+                    <div class="col mr-4">
                         <div><h3><strong>{{contact.first_name}} {{ contact.last_name }}</strong> </h3>{{ contact.com }}</div>
                         <p><strong>Phone : </strong>{{ contact.phone_number}} </p>
                     </div></a>
