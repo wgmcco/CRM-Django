@@ -13,9 +13,11 @@
 
   <!-- Custom fonts for this template-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w==" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f6b0b80676.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 
@@ -236,6 +238,8 @@ $(document).ready(function(){
         $( "#id_birth_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
         $( "#id_purchased_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
         $( "#id_dob" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
+        $( "#id_cdl_expires" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
+        $( "#id_med_expires" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
         $( "#id_hire_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
         $( "#id_start_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
         $( "#id_end_date" ).datepicker({ dateFormat: 'mm-dd-yy' }).attr("autocomplete", "off") ;
@@ -244,30 +248,32 @@ $(document).ready(function(){
   <!-- Date Time Picker JS -->
 
   <!-- Phone Mask JS -->
-  <script src="{% static 'date-time-phone/jquery-input-mask-phone-number.min.js' %}"></script>
+{#  <script src="{% static 'date-time-phone/jquery-input-mask-phone-number.min.js' %}"></script>#}
+{#  <script src="{% static 'date-time-phone/jquery-input-mask-social-number.js' %}"></script>#}
 
   <script>
-    //(xxx) xxx-xxxx format code
-    $(document).ready(function () {
-        $('#id_phone_number').usPhoneFormat({
-            format: '(xxx) xxx-xxxx',
-        });
+$   ( function() {
+
+    $('input[name="social_number"]').mask('000-00-0000');
+    {#$('input[name="zip_code"]').mask('S0S 0S0');#}
+    $('input[name="zip_code"]').mask('00000-0000');
+    $('input[name="fax_phone"]').mask('(000) 000-0000');
+    $('input[name="fax_number"]').mask('(000) 000-0000');
+    $('input[name="fax"]').mask('(000) 000-0000');
+    $('input[name="emergency_phone"]').mask('(000) 000-0000');
+    $('input[name="phone_number"]').mask('(000) 000-0000');
+    $('input[name="cdl"]').mask('S0000000');
+    $('input[name="valid_from"]').mask('00-00-0000');
+    $('input[name="valid_to"]').mask('00-00-0000');
+
+    {#$('input[name="cdl"]').mask('AA/SS/YYYY', {'translation': {#}
+    {#A: {pattern: /[A-Z]/},#}
+    {#S: {pattern: /[A-Za-z]/},#}
+    {#Y: {pattern: /[0-9]/}}});#}
+
+
     });
-    $(document).ready(function () {
-        $('#id_emergency_phone').usPhoneFormat({
-            format: '(xxx) xxx-xxxx',
-        });
-    });
-    $(document).ready(function () {
-        $('#id_fax_phone').usPhoneFormat({
-            format: '(xxx) xxx-xxxx',
-        });
-    });
-    $(document).ready(function () {
-        $('#id_fax_number').usPhoneFormat({
-            format: '(xxx) xxx-xxxx',
-        });
-    });
+
   </script>
   <!-- Phone Mask JS -->
 

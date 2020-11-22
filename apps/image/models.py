@@ -20,7 +20,7 @@ class PostManager(models.Manager):
 class Image(models.Model):
     name = models.CharField(max_length=100, blank=True)
     equip_number = models.ForeignKey('vehicle.Vehicle', on_delete=models.PROTECT)
-    image_image = models.FileField(default="image/default.jpg", upload_to="image/", null=True, blank=True)
+    image_image = models.FileField(default="image/default.jpg", upload_to="image/")
     notes = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

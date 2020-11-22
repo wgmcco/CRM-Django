@@ -25,7 +25,7 @@ class Insurance(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField()
-    pdf = models.FileField(upload_to='pdfs/', blank=True)
+    pdf = models.FileField(default="pdfs/default.pdf", upload_to='pdfs/')
     note = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

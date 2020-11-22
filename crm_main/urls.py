@@ -7,6 +7,7 @@ from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdate
 
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')),  # grappelli URLS
     path('admin/', admin.site.urls, name='admin'),
     path('', HomeView.as_view(), name='home'),
     path('register/', SignUpView.as_view(), name='register'),
