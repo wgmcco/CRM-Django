@@ -3,7 +3,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
 from apps.agency.views import SearchView
-from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdateView, ProfileView
+from apps.common.views import HomeView, SignUpView, DashboardView, ProfileUpdateView, ProfileView, SummaryView
 
 
 urlpatterns = [
@@ -35,6 +35,9 @@ urlpatterns = [
          name='logout'),
 
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
+
+    # path('summary/<int:pk>', SummaryView.as_view(), name='summary'),
+    path('summary/<int:pk>', SummaryView.as_view(), name='summary'),
 
     path('profile-update/', ProfileUpdateView.as_view(), name='profile-update'),
     path('profile/', ProfileView.as_view(), name='profile'),

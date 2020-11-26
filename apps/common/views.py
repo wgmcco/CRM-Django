@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, CreateView, ListView
 from .forms import SignUpForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -19,6 +19,22 @@ from ..image.models import Image
 
 class HomeView(TemplateView):
     template_name = 'common/home.html'
+
+
+class SummaryView(LoginRequiredMixin, ListView):
+    template_name = 'common/summary.html'
+    model = Company, Contact, Vehicle, Document
+    success_url = reverse_lazy('home')
+
+    def get(self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        comqs = Company.objects.filter(pk=pk)
+        conqs = Contact.objects.filter(com=pk)
+        context ={
+            'comqs': comqs,
+            'conqs': conqs
+        }
+        return render(request, 'common/summary.html', context)
 
 
 class DashboardView(LoginRequiredMixin, TemplateView):

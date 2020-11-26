@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+<style>
+a:link {
+  text-decoration: none;
+}
+</style>
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+        <h1 class="h3 mb-0 text-gray-800">{% for comp in comqs %} <strong>{{ comp.name }}</strong></a></td> {% endfor %}</h1>
+        </div>
+
+        <!-- Main Content Here -->
+
+{#            <h1>{{ comqs.name }}</h1>#}
+{#            <h1>{{ conqs.count}}</h1>#}
+
+
+              {% for comp in comqs %}
+
+
+
+
+                            <h1> <a href="{{ comp.profile_image.url }}">
+                            <img src="{{ comp.profile_image.url }}"
+                                 onerror="this.onerror=null;this.src='/media/image/pdf.png'"
+                                 style="width:55px;height:55px;"></h1>
+                            <h1>{{ comp.get_company_type_display }} </h1>
+                            <h1>{{ comp.phone_number }} </h1>
+                            <h1>{{ comp.owner }} </h1>
+                            <h1>{{ comp.email }} </h1>
+                  <td><details>
+                    <summary>Notes</summary>
+                    <p>{{ comp.notes }} </p>
+                  </details></td>
+
+
+
+              {% endfor %}
+                     {% for con in conqs %}
+                         <h3>{{ con.first_name }} {{ con.last_name }}</h3>
+                     {% endfor %}
+    </div>
+{% endblock content %}
