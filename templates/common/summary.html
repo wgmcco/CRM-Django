@@ -45,7 +45,16 @@ a:link {
 
               {% endfor %}
                      {% for con in conqs %}
+                         <a href="{{ con.profile_image.url }}">
+                         <h3><img src="{{ con.profile_image.url }}" style="width:155px;height: :155px;" </h3>
                          <h3>{{ con.first_name }} {{ con.last_name }}</h3>
+                     {% endfor %}
+
+                    {% for doc in docqs %}
+                         <h3>{{ doc.type }} {{ doc.note }}</h3>
+                     {% endfor %}
+                    {% for veh in vehqs %}
+                         <h3>{{ veh.equip_number }} {{ veh.equip_name }} {{ veh.note }}</h3>
                      {% endfor %}
     </div>
 {% endblock content %}

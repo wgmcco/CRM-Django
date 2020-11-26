@@ -30,9 +30,13 @@ class SummaryView(LoginRequiredMixin, ListView):
         pk = kwargs.get('pk')
         comqs = Company.objects.filter(pk=pk)
         conqs = Contact.objects.filter(com=pk)
+        docqs = Document.objects.filter(company=pk)
+        vehqs = Vehicle.objects.filter(owner_id=pk)
         context ={
             'comqs': comqs,
-            'conqs': conqs
+            'conqs': conqs,
+            'docqs': docqs,
+            'vehqs': vehqs
         }
         return render(request, 'common/summary.html', context)
 
