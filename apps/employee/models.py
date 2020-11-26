@@ -53,7 +53,7 @@ class Employee(models.Model):
     cdl_class = models.CharField(max_length=1, choices=CLASS, blank=True, null=True)
     med_expires = models.DateField(null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
-    profile_image = models.ImageField(default='equipment/default.jpg', upload_to='equipment/', null=True, blank=True)
+    profile_image = models.ImageField(default='employee/default.jpg', upload_to='employee/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
