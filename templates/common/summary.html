@@ -13,7 +13,7 @@ a:link {
 
 <link rel="stylesheet" href="{% static 'css/summary.css' %}">
 
-    <div class="todd">
+    <div>
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
@@ -30,16 +30,16 @@ a:link {
 
 <div class="container-fluid">
     <div class="grid-container">
-  <div class="item1">{% for comp in comqs %} <img src="{{ comp.profile_image.url }}"
+        <div class="item1">{% for comp in comqs %} <img src="{{ comp.profile_image.url }}"
                                                   onerror="this.onerror=null;this.src='/media/image/pdf.png'"
                                  style="width:200px;height:150px;"></div>
-      <div class="item2">{% for veh in vehqs %}
-                         <h3>{{ veh.equip_number }} {{ veh.equip_name }} {{ veh.note }}</h3>
+        <div class="item2">{% for veh in vehqs %}
+                         <h3>{{ veh.equip_number }} - {{ veh.equip_name }} - {{ veh.note }}</h3>
                      {% endfor %}
-                        <h2>{% for con in conqs %}
-                            {{ con.first_name }} {{ con.last_name }}</h2>
-                            {% endfor %}</div>
-  <div class="item3"><h1>{{ comp.phone_number }} / {{ comp.owner }} </h1>
+                        {% for con in conqs %}
+                            <h3>{{ con.first_name }} {{ con.last_name }} - {{ con.phone_number }}</h3>
+                        {% endfor %}</div>
+        <div class="item3"><h1>{{ comp.owner }} - {{ comp.phone_number }}</h1>
                             <h1>{{ comp.email }} </h1>
                             <details>
                                 <summary>Notes</summary>
@@ -49,6 +49,8 @@ a:link {
       <h3>{{ doc.type }} Expires - {{ doc.end_date }} <details><summary>Notes</summary>{{ doc.note }}</details></h3>
                      {% endfor %}</div>
     {% endfor %}
+
+{#        <div class="item5">test item 5</div>#}
     </div>
 </div>
 {% endblock content %}
