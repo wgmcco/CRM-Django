@@ -61,4 +61,4 @@ class Company(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse_lazy('company-detail', args=[str(self.id)])
+        return reverse_lazy('company-summary', args=[str(self.id)])

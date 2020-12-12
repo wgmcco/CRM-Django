@@ -33,7 +33,8 @@
 .item2 {
   grid-area: 1 / 2 / 2 / 3;
   text-indent: 50px;
-  text-align: left;
+  text-align: justify-all;
+
 }
 .item3 {
   grid-area: 2 / 1 / 3 / 3;
@@ -42,9 +43,10 @@
 }
 .item4 {
   grid-area: 1 / 3 / 3 / 3;
-    text-indent: 50px;
-    text-align: left;
+  text-indent: 50px;
+  text-align: left;
 }
+
 /*.item5 {*/
 /*  grid-area: 1 / 1 / 2 / 2;*/
 /*}*/

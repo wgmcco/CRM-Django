@@ -9,7 +9,14 @@
 a:link {
   text-decoration: none;
 }
+p {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
 </style>
+
 
 <link rel="stylesheet" href="{% static 'css/summary.css' %}">
 
@@ -34,23 +41,37 @@ a:link {
                                                   onerror="this.onerror=null;this.src='/media/image/pdf.png'"
                                  style="width:200px;height:150px;"></div>
         <div class="item2">{% for veh in vehqs %}
-                         <h3>{{ veh.equip_number }} - {{ veh.equip_name }} - {{ veh.note }}</h3>
-                     {% endfor %}
+                         <h6>{{ veh.equip_number }} - {{ veh.equip_name }} - {{ veh.note }}</h6>
+                        {% endfor %}
                         {% for con in conqs %}
-                            <h3>{{ con.first_name }} {{ con.last_name }} - {{ con.phone_number }}</h3>
+                            <h6>{{ con.first_name }} {{ con.last_name }} - {{ con.phone_number }}</h6>
                         {% endfor %}</div>
-        <div class="item3"><h1>{{ comp.owner }} - {{ comp.phone_number }}</h1>
-                            <h1>{{ comp.email }} </h1>
+        <div class="item3"><h6>{{ comp.owner }} - {{ comp.phone_number }}</h6>
+                            <h6>{{ comp.address1 }} {{ comp.address2 }} {{ comp.city }} {{ comp.state }}, {{ comp.zip_code }}</h6>
+                            <h6>{{ comp.email }} </h6>
+                            <h6><details>
+{#                                <h6><summary>Notes</summary></h6>#}
+                                <p>{{ comp.notes }}</p>
+                            </details></h6></div>
+        <div class="item4">{% for doc in docqs %}
+                            <h6>{{ doc.type }} Expires - {{ doc.end_date }}
                             <details>
-                                <summary>Notes</summary>
-                                <p>{{ comp.notes }} </p>
-                            </details></div>
-  <div class="item4">{% for doc in docqs %}
-      <h3>{{ doc.type }} Expires - {{ doc.end_date }} <details><summary>Notes</summary>{{ doc.note }}</details></h3>
-                     {% endfor %}</div>
-    {% endfor %}
+                                <p>{{ doc.note }}</p>
+                            </details></h6>
+                            {% endfor %}</div>
+
+    </div>
+            <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <a class="btn btn-md btn-outline-primary shadow-sm" href="{% url 'company' %}"><i class="fa fa-backward fa-lg"></i>&nbsp;  Back</a>&nbsp;
+                 <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'company-update' comp.pk %}"><i class="fa fa-pencil fa-lg"></i>&nbsp;  Edit</a>&nbsp;
+                 <a class="btn btn-md btn-outline-danger shadow-sm" href="#"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete</a>&nbsp;
+                 <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'company-pdf' comp.pk %}"><i class="fa fa-file-pdf-o fa-lg"></i>&nbsp; PDF </a>&nbsp;
+                 <a class="btn btn-md btn-outline-info shadow-sm" href="{% url 'company-csv' comp.pk %}"><i class="fa fa-file-download fa"></i>  CSV </a>
+        {% endfor %}
+{#            </div>#}
 
 {#        <div class="item5">test item 5</div>#}
-    </div>
+
 </div>
 {% endblock content %}

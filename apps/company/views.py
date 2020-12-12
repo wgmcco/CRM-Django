@@ -110,6 +110,7 @@ class CompanyUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Company
     success_message = "Company was updated successfully"
     fields = '__all__'
+    login_url = reverse_lazy('home')
 
 
 class CompanyTemplateView(LoginRequiredMixin, SuccessMessageMixin, TemplateView):

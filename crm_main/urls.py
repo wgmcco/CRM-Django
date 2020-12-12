@@ -37,7 +37,7 @@ urlpatterns = [
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
 
     # path('summary/<int:pk>', SummaryView.as_view(), name='summary'),
-    path('summary/<int:pk>', SummaryView.as_view(), name='summary'),
+    # path('summary/<int:pk>', SummaryView.as_view(), name='summary'),
 
     path('profile-update/', ProfileUpdateView.as_view(), name='profile-update'),
     path('profile/', ProfileView.as_view(), name='profile'),
