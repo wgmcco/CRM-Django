@@ -6,7 +6,7 @@ django-crispy-forms==1.9.2
 django-xhtml2pdf==0.0.4
 future==0.18.2
 html5lib==1.1
-Pillow==8.0.1
+Pillow==8.2.0
 pipenv==2018.11.26
 psycopg2-binary==2.8.6
 PyPDF2==1.26.0
