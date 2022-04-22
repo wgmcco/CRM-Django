@@ -9,7 +9,7 @@ html5lib==1.1
 Pillow==8.0.1
 pipenv==2018.11.26
 psycopg2-binary==2.8.6
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 python-bidi==0.4.2
 pytz==2020.4
 reportlab==3.5.55
